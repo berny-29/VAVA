@@ -1,4 +1,6 @@
-package src;
+package src.Model;
+
+import src.Model.Plan;
 
 /**
  * @author: Spol XD, akt(Filo,)

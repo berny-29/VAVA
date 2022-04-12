@@ -1,4 +1,4 @@
-package src;
+package src.Model;
 
 /**
  * @author: Spol XD, akt(Filo,)
