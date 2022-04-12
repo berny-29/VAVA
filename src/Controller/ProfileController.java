@@ -1,4 +1,4 @@
-package sample;
+package src.Controller;
 
 public class ProfileController {
 }
