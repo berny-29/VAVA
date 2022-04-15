@@ -1,9 +1,12 @@
+package src.Model;
+
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
 public final class Database {
     //TODO k tomuto budeme potrebovat singleton inicializaciu a nejaky subor obsahujuci vsetky udaje potrebne pre pripojenie
+    private static Database instance = null;
     private static Connection con = null;
 
     static
@@ -23,5 +26,10 @@ public final class Database {
     {
         return con;
     }
-
+    public static Database getInstance(){
+        if(instance == null){
+            instance = new Database();
+        }
+        return instance;
+    }
 }

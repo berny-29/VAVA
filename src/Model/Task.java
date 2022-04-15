@@ -6,8 +6,8 @@ import java.time.OffsetDateTime;
  * describtion: ponechavam vasej predstavivosti
  */
 public class Task {
-    private String desc;
     private boolean stat = false, repetitiveTask = false;
+    private String desc;
     private OffsetDateTime start, end;
 
     //TODO konstruktor spustitelny z funkcie planu addTask()
@@ -18,18 +18,16 @@ public class Task {
      *
      * Or do you have better idea
      */
-
-
-
-    //Geters
-    public String getDesc() {
-        return desc;
-    }
+    //
     public boolean isStat() {
         return stat;
     }
     public boolean isRepetitiveTask() {
         return repetitiveTask;
+    }
+    //Geters
+    public String getDesc() {
+        return desc;
     }
     public OffsetDateTime getEnd() {
         return end;

@@ -1,4 +1,4 @@
-package src;
+package src.Model;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -56,7 +56,7 @@ public class Account {
         }
 
     }
-    public static void pouzivatelLogin(String email, String password) throws SQLException {
+    public static void userLogin(String email, String password) throws SQLException {
         Connection conn = Database.getInstance().getConnection();
 
         String find = "SELECT * FROM accounts where email = ? and password = ?";
