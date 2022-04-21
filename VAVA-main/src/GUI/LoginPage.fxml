@@ -11,7 +11,8 @@
         <URL value="@../../application.css" />
     </stylesheets>
     <children>
-        <Text layoutX="253.0" layoutY="65.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Registration" wrappingWidth="107.12774658203125">
+
+        <Text layoutX="253.0" layoutY="65.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Login" wrappingWidth="107.12774658203125">
             <font>
                 <Font size="20.0" />
             </font>

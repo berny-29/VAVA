@@ -2,14 +2,21 @@ package src.Controllers;
 
 import javafx.fxml.FXML;
 import javafx.scene.control.*;
+import javafx.scene.text.Text;
 import src.Model.Account;
+import src.Model.ObservableResourceFactory;
 
 import java.sql.SQLException;
 import java.time.LocalDate;
+import java.util.Locale;
+import java.util.Objects;
+import java.util.ResourceBundle;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class RegistrationController {
+    @FXML
+    private Text title;
 
     @FXML
     private TextField email;
@@ -85,5 +92,45 @@ public class RegistrationController {
                 }
             }
         }
+    }
+
+    //testovacia funkcia
+    @FXML
+    private void test_en_loc() throws SQLException{
+        Locale en_loc = new Locale("en");
+        Locale sk_loc = new Locale("sk");
+        Locale target = null;
+        if(Objects.equals(Locale.getDefault(), sk_loc))
+            Locale.setDefault(new Locale("en"));
+        else
+            Locale.setDefault(new Locale("sk"));
+        ResourceBundle.clearCache();
+        setAll();
+    }
+
+    @FXML
+    private void setAll() throws SQLException{
+        ResourceBundle def_bundle = ResourceBundle.getBundle("src/RegistrationPage", Locale.getDefault());
+        title.setText(def_bundle.getString("registration"));
+        password.setPromptText(def_bundle.getString("password"));
+        firstName.setPromptText(def_bundle.getString("firstName"));
+        lastName.setPromptText(def_bundle.getString("lastName"));
+        male.setText(def_bundle.getString("mSex"));
+        female.setText(def_bundle.getString("fSex"));
+        registerButton.setText(def_bundle.getString("createAccount"));
+        birthDate.setPromptText(def_bundle.getString("birthDate"));
+    }
+
+    //testovacia funkcia
+    @FXML
+    public void binding( ObservableResourceFactory resourceFactory) throws SQLException{
+        this.
+        title.textProperty().bind(resourceFactory.getStringBinding("registration"));
+        password.textProperty().bind(resourceFactory.getStringBinding("password"));
+        firstName.textProperty().bind(resourceFactory.getStringBinding("firstName"));
+        male.textProperty().bind(resourceFactory.getStringBinding("mSex"));
+        female.textProperty().bind(resourceFactory.getStringBinding("fSex"));
+        registerButton.textProperty().bind(resourceFactory.getStringBinding("createAccount"));
+        birthDate.promptTextProperty().bind(resourceFactory.getStringBinding("birthDate"));
     }
 }
