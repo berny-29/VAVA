@@ -5,7 +5,7 @@ import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleObjectProperty;
 
 import java.util.ResourceBundle;
-/*@author: James_D
+/**@author: James_D
 *@url: https://stackoverflow.com/questions/32464974/javafx-change-application-language-on-the-run
 * */
 public class ObservableResourceFactory {
@@ -30,3 +30,16 @@ public class ObservableResourceFactory {
         };
     }
 }
+
+/**
+ * usage:{
+ *          ObservableResourceFactory resourceFactory = .... ;
+ *
+ *          resourceBundle.setResources(...);
+ *
+ *          Label greetingLabel = new Label();
+ *          greetingLabel.textProperty().bind(resourceFactory.getStringBinding("greeting"));
+ *
+ *          greetingLabel updated on --> resourceFactory.setResources(...);
+ *         }
+ *  */
