@@ -2,14 +2,28 @@ package src.Controllers;
 
 
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import src.Model.Account;
 
+import java.io.IOException;
 import java.sql.SQLException;
+import java.util.Locale;
+import java.util.Objects;
+import java.util.ResourceBundle;
+
 import javafx.event.ActionEvent;
 
 public class LoginController {
+    public Button changePwdBtn;
+    public Text labe0;
+    public Label labe1;
+    public Label labe2;
+    public Label labe3;
     private Stage primaryStage;
 
     @FXML
@@ -87,5 +101,73 @@ public class LoginController {
     @FXML
     private void changeScene() throws SQLException{
         System.out.println("Scene was changed.");
+    }
+
+    //testovacia funkcia
+
+    @FXML
+    private void test_loc() throws SQLException, IOException {
+        Locale en_loc = new Locale("en");
+        Locale sk_loc = new Locale("sk");
+        Locale target = null;
+        if(Objects.equals(Locale.getDefault(), sk_loc)) {
+            Locale.setDefault(new Locale("en"));
+            ResourceBundle.clearCache();
+            LoadView(new Locale("en"));
+        }
+        else {
+            Locale.setDefault(new Locale("sk"));
+            ResourceBundle.clearCache();
+            LoadView(new Locale("sk"));
+        }
+    }
+
+    @FXML
+    private void LoadView(Locale locale) throws IOException {
+        ResourceBundle def_bundle = ResourceBundle.getBundle("src/RegistrationPage", locale);
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("/src/GUI/RegistrationPage.fxml"));
+        loader.setResources(def_bundle);
+        try{
+            Parent root = loader.load();
+            Stage s = (Stage) email.getScene().getWindow();
+            s.setScene(new Scene(root));
+        } catch (IOException e){
+            e.printStackTrace();
+        }
+    }
+
+    @FXML
+    private void test_en_loc() throws SQLException{
+        Locale en_loc = new Locale("en");
+        Locale sk_loc = new Locale("sk");
+        Locale target = null;
+        if(Objects.equals(Locale.getDefault(), sk_loc))
+            Locale.setDefault(new Locale("en"));
+        else
+            Locale.setDefault(new Locale("sk"));
+        ResourceBundle.clearCache();
+        setAll();
+    }
+
+    @FXML
+    private void setAll() throws SQLException{
+        ResourceBundle def_bundle = ResourceBundle.getBundle("src/RegistrationPage", Locale.getDefault());
+        
+        email.setText(def_bundle.getString("login"));
+        password.setPromptText(def_bundle.getString("password"));
+        newPassword.setPromptText(def_bundle.getString("newPassword"));
+        newPasswordAgain.setPromptText(def_bundle.getString("newPasswordAgain"));
+        myEmail.setPromptText(def_bundle.getString("myEmail"));
+        RegisterButton.setText(def_bundle.getString("registerButton"));
+        loginButton.setText(def_bundle.getString("loginButton"));
+        forgotPass.setText(def_bundle.getString("forgotPass"));
+
+
+        changePwdBtn.setText(def_bundle.getString("changeEmail"));
+        labe0.setText(def_bundle.getString("changePassword"));
+        labe1.setText(def_bundle.getString("typeNewPassword"));
+        labe2.setText(def_bundle.getString("typeAgainNewPassword"));
+        labe3.setText(def_bundle.getString("myEmail"));
     }
 }
