@@ -2,9 +2,7 @@ package src.Controllers;
 
 
 import javafx.fxml.FXML;
-import javafx.scene.control.Alert;
-import javafx.scene.control.PasswordField;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.stage.Stage;
 import src.Model.Account;
 
@@ -28,6 +26,15 @@ public class LoginController {
 
     @FXML
     private PasswordField newPasswordAgain;
+
+    @FXML
+    private Button RegisterButton;
+
+    @FXML
+    private Button loginButton;
+
+    @FXML
+    private Label forgotPass;
 
     @FXML
     private void login() throws SQLException {
