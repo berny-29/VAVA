@@ -42,6 +42,9 @@ public class RegistrationController {
     @FXML
     private DatePicker birthDate;
 
+    @FXML
+    private Button logInButton;
+
 
     @FXML
     private void register() throws SQLException {

@@ -1,4 +1,5 @@
 .anchor {
     -fx-background-image:url('Images/background.jpg');
+    -fx-background-repeat: no-repeat;
     -fx-background-size:cover;
 }
