@@ -12,8 +12,8 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource("/src/GUI/LoginPage.fxml"));
-        primaryStage.setTitle("Life");
+        Parent root = FXMLLoader.load(getClass().getResource("/src/GUI/RegistrationPage.fxml"));
+        primaryStage.setTitle("Vava_Project");
         primaryStage.setScene(new Scene(root, 640, 480));
         primaryStage.show();
     }
