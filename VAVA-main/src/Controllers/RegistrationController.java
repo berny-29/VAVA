@@ -1,11 +1,16 @@
 package src.Controllers;
 
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.text.Text;
+import javafx.stage.Stage;
 import src.Model.Account;
 import src.Model.ObservableResourceFactory;
 
+import java.io.IOException;
 import java.sql.SQLException;
 import java.time.LocalDate;
 import java.util.Locale;
@@ -95,6 +100,39 @@ public class RegistrationController {
     }
 
     //testovacia funkcia
+
+    @FXML
+    private void test_loc() throws SQLException, IOException {
+        Locale en_loc = new Locale("en");
+        Locale sk_loc = new Locale("sk");
+        Locale target = null;
+        if(Objects.equals(Locale.getDefault(), sk_loc)) {
+            Locale.setDefault(new Locale("en"));
+            ResourceBundle.clearCache();
+            LoadView(new Locale("en"));
+        }
+        else {
+            Locale.setDefault(new Locale("sk"));
+            ResourceBundle.clearCache();
+            LoadView(new Locale("sk"));
+        }
+    }
+
+    @FXML
+    private void LoadView(Locale locale) throws IOException {
+        ResourceBundle def_bundle = ResourceBundle.getBundle("src/RegistrationPage", locale);
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("/src/GUI/RegistrationPage.fxml"));
+        loader.setResources(def_bundle);
+        try{
+            Parent root = loader.load();
+            Stage s = (Stage) title.getScene().getWindow();
+            s.setScene(new Scene(root));
+        } catch (IOException e){
+            e.printStackTrace();
+        }
+    }
+
     @FXML
     private void test_en_loc() throws SQLException{
         Locale en_loc = new Locale("en");
