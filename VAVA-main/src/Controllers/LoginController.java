@@ -9,6 +9,7 @@ import javafx.stage.Stage;
 import src.Model.Account;
 
 import java.sql.SQLException;
+import javafx.event.ActionEvent;
 
 public class LoginController {
     private Stage primaryStage;
@@ -51,7 +52,7 @@ public class LoginController {
 
 
     @FXML
-    private void changeEmail() throws SQLException {
+    private void changeEmail(ActionEvent event) throws SQLException {
         String email = myEmail.getText();
         String nPassword = newPassword.getText();
         String nPasswordA = newPasswordAgain.getText();
@@ -76,6 +77,8 @@ public class LoginController {
         }
 
     }
-
-
+    @FXML
+    private void changeScene() throws SQLException{
+        System.out.println("Scene was changed.");
+    }
 }
