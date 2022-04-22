@@ -78,47 +78,10 @@ public class LoginController extends Controller {
 
     }
 
-
-
-    @FXML
-    private void changeEmail(ActionEvent event) throws SQLException, IOException {
-        String email = myEmail.getText();
-        String nPassword = newPassword.getText();
-        String nPasswordA = newPasswordAgain.getText();
-
-        if(Account.changePassword(email,nPassword, nPasswordA) == 2){
-            Alert existingEmail = new Alert(Alert.AlertType.INFORMATION);
-            existingEmail.setTitle("Passwords are different");
-            existingEmail.setContentText("Please enter same passwords");
-            existingEmail.showAndWait();
-        }
-        if(Account.changePassword(email,nPassword, nPasswordA) == 0){
-            Alert existingEmail = new Alert(Alert.AlertType.INFORMATION);
-            existingEmail.setTitle("No account with this email");
-            existingEmail.setContentText("Please enter existing email");
-            existingEmail.showAndWait();
-        }
-        if(Account.changePassword(email,nPassword, nPasswordA) == 1){
-            Alert existingEmail = new Alert(Alert.AlertType.INFORMATION);
-            existingEmail.setTitle("Password succesfully changed");
-            existingEmail.setContentText("You can log in with new password");
-
-            existingEmail.showAndWait();
-            Stage s = (Stage) changePwdBtn.getScene().getWindow();
-            loadPage(s,"LoginPage","LoginPage");
-        }
-
-    }
     @FXML
     private void changeScene() throws SQLException, IOException {
         Stage s = (Stage) forgotPass.getScene().getWindow();
         loadPage(s,"LoginPage","ChangePassword");
-    }
-
-    @FXML
-    private void go_back() throws IOException {
-        Stage s = (Stage) BackButton.getScene().getWindow();
-        loadPage(s,"LoginPage","LoginPage");
     }
 
     @FXML
@@ -129,53 +92,15 @@ public class LoginController extends Controller {
 
     }
 
-    //testovacia funkcia
 
     @FXML
-    private void test_loc() throws SQLException, IOException {
-        Locale en_loc = new Locale("en");
-        Locale sk_loc = new Locale("sk");
-        Locale target = null;
-        if(Objects.equals(Locale.getDefault(), sk_loc)) {
-            Locale.setDefault(new Locale("en"));
-            ResourceBundle.clearCache();
-            LoadView(new Locale("en"));
-        }
-        else {
-            Locale.setDefault(new Locale("sk"));
-            ResourceBundle.clearCache();
-            LoadView(new Locale("sk"));
-        }
+    private void changePageLang() throws SQLException, IOException {
+        Stage s = (Stage) email.getScene().getWindow();
+        changeDefLoc();
+        loadPage(s, "LoginPage", "LoginPage");
     }
 
-    @FXML
-    private void LoadView(Locale locale) throws IOException {
-        ResourceBundle def_bundle = ResourceBundle.getBundle("src/LoginPage", locale);
-        FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource("/src/GUI/LoginPage.fxml"));
-        loader.setResources(def_bundle);
-        try{
-            Parent root = loader.load();
-            Stage s = (Stage) email.getScene().getWindow();
-            s.setScene(new Scene(root));
-        } catch (IOException e){
-            e.printStackTrace();
-        }
-    }
-
-    @FXML
-    private void test_en_loc() throws SQLException{
-        Locale en_loc = new Locale("en");
-        Locale sk_loc = new Locale("sk");
-        Locale target = null;
-        if(Objects.equals(Locale.getDefault(), sk_loc))
-            Locale.setDefault(new Locale("en"));
-        else
-            Locale.setDefault(new Locale("sk"));
-        ResourceBundle.clearCache();
-        setAll();
-    }
-
+    //Iny sposob vykonavania zmeny jazyka bez reloadnutia stranky -->
     @FXML
     private void setAll() throws SQLException{
         ResourceBundle def_bundle = ResourceBundle.getBundle("src/RegistrationPage", Locale.getDefault());
