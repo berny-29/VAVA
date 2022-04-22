@@ -1,4 +1,4 @@
-package src.Controllers;
+package Controllers;
 
 
 import javafx.fxml.FXML;
@@ -25,6 +25,12 @@ public class LoginController {
     public Label labe2;
     public Label labe3;
     private Stage primaryStage;
+
+    @FXML
+    private Label languageENG;
+
+    @FXML
+    private Label languageSK;
 
     @FXML
     private TextField email;

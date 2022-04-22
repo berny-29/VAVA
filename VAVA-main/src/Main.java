@@ -22,6 +22,7 @@ public class Main<aspect> extends Application {
         Parent root = FXMLLoader.load(getClass().getResource("/src/GUI/LoginPage.fxml"), def_bundle);
         primaryStage.setTitle("Vava_Project");
         primaryStage.setScene(new Scene(root, 640, 480));
+        primaryStage.setResizable(false);
         primaryStage.show();
     }
 
