@@ -132,7 +132,8 @@ public class RegistrationController {
 
     @FXML
     private void LoadView(Locale locale) throws IOException {
-        ResourceBundle def_bundle = ResourceBundle.getBundle("src/RegistrationPage", locale);
+        //ResourceBundle def_bundle = ResourceBundle.getBundle("src/RegistrationPage", locale);
+        ResourceBundle def_bundle = ResourceBundle.getBundle("src/RegistrationPage", Locale.getDefault());
         FXMLLoader loader = new FXMLLoader();
         loader.setLocation(getClass().getResource("/src/GUI/RegistrationPage.fxml"));
         loader.setResources(def_bundle);
