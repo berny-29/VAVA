@@ -32,8 +32,7 @@
             <Image url="@../../Images/Logo.png" />
          </image>
       </ImageView>
-      <Label fx:id="languageSK" layoutX="585.0" layoutY="6.0" text="SK | " />
-      <Label fx:id="languageEN" layoutX="608.0" layoutY="6.0" text="EN" />
+      <Label fx:id="languageSwitch" layoutX="585.0" layoutY="6.0" text="SK |  EN" />
     </children>
 
 </AnchorPane>
