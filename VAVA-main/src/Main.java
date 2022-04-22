@@ -16,7 +16,7 @@ import java.util.ResourceBundle;
 public class Main<aspect> extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception{
-        Locale.setDefault(new Locale("sk"));
+        Locale.setDefault(new Locale("en"));
         ResourceBundle def_bundle = ResourceBundle.getBundle("src/LoginPage", Locale.getDefault());
 
         Parent root = FXMLLoader.load(getClass().getResource("/src/GUI/LoginPage.fxml"), def_bundle);

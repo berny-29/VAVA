@@ -27,7 +27,7 @@ public class LoginController {
 
 
     @FXML
-    private Label languageENG;
+    private Label languageEN;
 
     @FXML
     private Label languageSK;
