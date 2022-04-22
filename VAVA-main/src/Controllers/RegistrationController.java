@@ -20,6 +20,10 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class RegistrationController {
+
+    @FXML
+    private Label languageSwitch;
+
     @FXML
     private Text title;
 
