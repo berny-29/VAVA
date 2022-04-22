@@ -59,6 +59,12 @@ public class LoginController extends Controller {
     @FXML
     private Button BackButton;
 
+    @FXML
+    private void changePageLang() throws SQLException, IOException {
+        Stage s = (Stage) email.getScene().getWindow();
+        changeDefLoc();
+        loadPage(s, "LoginPage", "LoginPage");
+    }
 
     @FXML
     private void login() throws SQLException, IOException {
@@ -79,7 +85,7 @@ public class LoginController extends Controller {
     }
 
     @FXML
-    private void changeScene() throws SQLException, IOException {
+    private void forgotenPassword() throws SQLException, IOException {
         Stage s = (Stage) forgotPass.getScene().getWindow();
         loadPage(s,"LoginPage","ChangePassword");
     }
@@ -93,12 +99,6 @@ public class LoginController extends Controller {
     }
 
 
-    @FXML
-    private void changePageLang() throws SQLException, IOException {
-        Stage s = (Stage) email.getScene().getWindow();
-        changeDefLoc();
-        loadPage(s, "LoginPage", "LoginPage");
-    }
 
     //Iny sposob vykonavania zmeny jazyka bez reloadnutia stranky -->
     @FXML
