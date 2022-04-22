@@ -10,13 +10,13 @@ import java.io.IOException;
 import java.util.Locale;
 import java.util.ResourceBundle;
 
-abstract class Controller {
+abstract class Controller  {
 
     @FXML
-    public void loadPage(Stage s, String pageName) throws IOException {
+    public void loadPage(Stage s, String pageName, String fxmlPage) throws IOException {
         ResourceBundle def_bundle = ResourceBundle.getBundle("src/"+pageName, Locale.getDefault());
         FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource("/src/GUI/"+pageName+".fxml"));
+        loader.setLocation(getClass().getResource("/src/GUI/"+fxmlPage+".fxml"));
         loader.setResources(def_bundle);
 
         try{
