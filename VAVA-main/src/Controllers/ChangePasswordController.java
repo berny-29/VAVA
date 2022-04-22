@@ -42,6 +42,15 @@ public class ChangePasswordController extends Controller{
     @FXML
     private PasswordField newPasswordAgain;
 
+    //Tato funkcia by sla i inak urobit, daly by sme abstrakny Label titul do triedy Controller a vsetky Stranky by mali
+    //mat vlastny jedinecny title, takze by to odstranilo potrebu nastavovania specifickych Stage s objektov
+    @FXML
+    private void changePageLang() throws SQLException, IOException {
+        Stage s = (Stage) myEmail.getScene().getWindow();
+        changeDefLoc();
+        loadPage(s, "ChangePassword", "ChangePassword");
+    }
+
     @FXML
     private void changeEmail(ActionEvent event) throws SQLException, IOException {
         String email = myEmail.getText();
@@ -70,15 +79,6 @@ public class ChangePasswordController extends Controller{
             loadPage(s,"LoginPage","LoginPage");
         }
 
-    }
-
-    //Tato funkcia by sla i inak urobit, daly by sme abstrakny Label titul do triedy Controller a vsetky Stranky by mali
-    //mat vlastny jedinecny title, takze by to odstranilo potrebu nastavovania specifickych Stage s objektov
-    @FXML
-    private void changePageLang() throws SQLException, IOException {
-        Stage s = (Stage) myEmail.getScene().getWindow();
-        changeDefLoc();
-        loadPage(s, "ChangePassword", "ChangePassword");
     }
 
     @FXML

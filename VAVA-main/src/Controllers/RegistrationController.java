@@ -54,7 +54,7 @@ public class RegistrationController extends Controller {
     private void changePageLang() throws SQLException, IOException {
         Stage s = (Stage) email.getScene().getWindow();
         changeDefLoc();
-        loadPage(s, "LoginPage", "LoginPage");
+        loadPage(s, "RegistrationPage", "RegistrationPage");
     }
 
     @FXML
