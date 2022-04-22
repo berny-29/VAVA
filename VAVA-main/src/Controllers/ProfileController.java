@@ -1,4 +1,4 @@
 package src.Controllers;
 
-public class ProfileController {
+public class ProfileController extends Controller{
 }

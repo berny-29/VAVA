@@ -19,7 +19,7 @@ import java.util.ResourceBundle;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class RegistrationController {
+public class RegistrationController extends Controller{
     @FXML
     private Text title;
 
@@ -93,7 +93,7 @@ public class RegistrationController {
                     succesfullyRegistered.setContentText("Press OK to continue to login");
                     succesfullyRegistered.showAndWait();
 
-                    ResourceBundle def_bundle = ResourceBundle.getBundle("src/RegistrationPage", Locale.getDefault());
+                    ResourceBundle def_bundle = ResourceBundle.getBundle("src/LoginPage", Locale.getDefault());
                     FXMLLoader loader = new FXMLLoader();
                     loader.setLocation(getClass().getResource("/src/GUI/LoginPage.fxml"));
                     loader.setResources(def_bundle);
@@ -116,6 +116,12 @@ public class RegistrationController {
 
     //testovacia funkcia
 
+    @FXML
+    private void loadLoginPage()  throws SQLException, IOException {
+        Stage s = (Stage) title.getScene().getWindow();
+        String pageName = "LoginPage";
+        loadPage(s, pageName);
+    }
     @FXML
     private void test_loc() throws SQLException, IOException {
         Locale en_loc = new Locale("en");

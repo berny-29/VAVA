@@ -9,7 +9,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.text.Text;
 
-public class ChangePasswordController {
+public class ChangePasswordController extends Controller{
 
     @FXML
     private Button BackButton;

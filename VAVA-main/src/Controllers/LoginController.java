@@ -18,7 +18,7 @@ import java.util.ResourceBundle;
 
 import javafx.event.ActionEvent;
 
-public class LoginController {
+public class LoginController extends Controller{
     public Button changePwdBtn;
     public Text labe0;
     public Label labe1;
