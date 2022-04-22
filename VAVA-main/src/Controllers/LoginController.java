@@ -27,7 +27,7 @@ public class LoginController {
 
 
     @FXML
-    private Label languageEN;
+    private Label languageENG;
 
     @FXML
     private Label languageSK;
@@ -56,6 +56,7 @@ public class LoginController {
     @FXML
     private Label forgotPass;
 
+
     @FXML
     private void login() throws SQLException, IOException {
 
@@ -63,15 +64,17 @@ public class LoginController {
         String passwordField = password.getText();
 
         if(Account.userLogin(emailField, passwordField)){
-            Stage stage;
-            Parent root;
-
-            stage = (Stage) loginButton.getScene().getWindow();
-            root = FXMLLoader.load(getClass().getResource("/src/GUI/ProfilePage.fxml"));
-
-            Scene scene = new Scene(root);
-            stage.setScene(scene);
-            stage.show();
+            ResourceBundle def_bundle = ResourceBundle.getBundle("src/LoginPage", Locale.getDefault());
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(getClass().getResource("/src/GUI/ProfilePage.fxml"));
+            loader.setResources(def_bundle);
+            try{
+                Parent root = loader.load();
+                Stage s = (Stage) loginButton.getScene().getWindow();
+                s.setScene(new Scene(root));
+            } catch (IOException e){
+                e.printStackTrace();
+            }
         }else{
             Alert existingEmail = new Alert(Alert.AlertType.CONFIRMATION);
             existingEmail.setTitle("Wrong credentials");
@@ -107,42 +110,49 @@ public class LoginController {
             existingEmail.setContentText("You can log in with new password");
 
             existingEmail.showAndWait();
-            Stage stage;
-            Parent root;
-
-            stage = (Stage) loginButton.getScene().getWindow();
-            root = FXMLLoader.load(getClass().getResource("/src/GUI/LoginPage.fxml"));
-
-            Scene scene = new Scene(root);
-            stage.setScene(scene);
-            stage.show();
+            ResourceBundle def_bundle = ResourceBundle.getBundle("src/LoginPage", Locale.getDefault());
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(getClass().getResource("/src/GUI/LoginPage.fxml"));
+            loader.setResources(def_bundle);
+            try{
+                Parent root = loader.load();
+                Stage s = (Stage) changePwdBtn.getScene().getWindow();
+                s.setScene(new Scene(root));
+            } catch (IOException e){
+                e.printStackTrace();
+            }
         }
 
     }
     @FXML
     private void changeScene() throws SQLException, IOException {
-        Stage stage;
-        Parent root;
-
-        stage = (Stage) loginButton.getScene().getWindow();
-        root = FXMLLoader.load(getClass().getResource("/src/GUI/ChangePassword.fxml"));
-
-        Scene scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
+        ResourceBundle def_bundle = ResourceBundle.getBundle("src/LoginPage", Locale.getDefault());
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("/src/GUI/ChangePassword.fxml"));
+        loader.setResources(def_bundle);
+        try{
+            Parent root = loader.load();
+            Stage s = (Stage) forgotPass.getScene().getWindow();
+            s.setScene(new Scene(root));
+        } catch (IOException e){
+            e.printStackTrace();
+        }
     }
 
     @FXML
     private void register() throws IOException {
-        Stage stage;
-        Parent root;
+        ResourceBundle def_bundle = ResourceBundle.getBundle("src/LoginPage", Locale.getDefault());
+        FXMLLoader loader = new FXMLLoader();
+        loader.setLocation(getClass().getResource("/src/GUI/RegistartionPage.fxml"));
+        loader.setResources(def_bundle);
 
-        stage = (Stage) loginButton.getScene().getWindow();
-        root = FXMLLoader.load(getClass().getResource("/src/GUI/RegistartionPage.fxml"));
-
-        Scene scene = new Scene(root);
-        stage.setScene(scene);
-        stage.show();
+        try{
+            Parent root = loader.load();
+            Stage s = (Stage) loginButton.getScene().getWindow();
+            s.setScene(new Scene(root));
+        } catch (IOException e){
+            e.printStackTrace();
+        }
     }
 
     //testovacia funkcia

@@ -20,10 +20,6 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class RegistrationController {
-
-    @FXML
-    private Label languageSwitch;
-
     @FXML
     private Text title;
 
@@ -96,15 +92,18 @@ public class RegistrationController {
                     succesfullyRegistered.setTitle("Succesfully registered");
                     succesfullyRegistered.setContentText("Press OK to continue to login");
                     succesfullyRegistered.showAndWait();
-                    Stage stage;
-                    Parent root;
 
-                    stage = (Stage) logInButton.getScene().getWindow();
-                    root = FXMLLoader.load(getClass().getResource("/src/GUI/LoginPage.fxml"));
-
-                    Scene scene = new Scene(root);
-                    stage.setScene(scene);
-                    stage.show();
+                    ResourceBundle def_bundle = ResourceBundle.getBundle("src/RegistrationPage", Locale.getDefault());
+                    FXMLLoader loader = new FXMLLoader();
+                    loader.setLocation(getClass().getResource("/src/GUI/LoginPage.fxml"));
+                    loader.setResources(def_bundle);
+                    try{
+                        Parent root = loader.load();
+                        Stage s = (Stage) registerButton.getScene().getWindow();
+                        s.setScene(new Scene(root));
+                    } catch (IOException e){
+                        e.printStackTrace();
+                    }
                 }else{
                     Alert existingEmail = new Alert(Alert.AlertType.INFORMATION);
                     existingEmail.setTitle("Email already registered");
