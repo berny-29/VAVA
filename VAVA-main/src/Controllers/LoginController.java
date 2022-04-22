@@ -18,7 +18,7 @@ import java.util.ResourceBundle;
 
 import javafx.event.ActionEvent;
 
-public class LoginController extends Controller{
+public class LoginController extends Controller {
     public Button changePwdBtn;
     public Text labe0;
     public Label labe1;
@@ -56,6 +56,9 @@ public class LoginController extends Controller{
     @FXML
     private Label forgotPass;
 
+    @FXML
+    private Button BackButton;
+
 
     @FXML
     private void login() throws SQLException, IOException {
@@ -64,17 +67,8 @@ public class LoginController extends Controller{
         String passwordField = password.getText();
 
         if(Account.userLogin(emailField, passwordField)){
-            ResourceBundle def_bundle = ResourceBundle.getBundle("src/LoginPage", Locale.getDefault());
-            FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(getClass().getResource("/src/GUI/ProfilePage.fxml"));
-            loader.setResources(def_bundle);
-            try{
-                Parent root = loader.load();
-                Stage s = (Stage) loginButton.getScene().getWindow();
-                s.setScene(new Scene(root));
-            } catch (IOException e){
-                e.printStackTrace();
-            }
+            Stage s = (Stage) loginButton.getScene().getWindow();
+            loadPage(s,"LoginPage","ProfilePage");
         }else{
             Alert existingEmail = new Alert(Alert.AlertType.CONFIRMATION);
             existingEmail.setTitle("Wrong credentials");
@@ -110,49 +104,29 @@ public class LoginController extends Controller{
             existingEmail.setContentText("You can log in with new password");
 
             existingEmail.showAndWait();
-            ResourceBundle def_bundle = ResourceBundle.getBundle("src/LoginPage", Locale.getDefault());
-            FXMLLoader loader = new FXMLLoader();
-            loader.setLocation(getClass().getResource("/src/GUI/LoginPage.fxml"));
-            loader.setResources(def_bundle);
-            try{
-                Parent root = loader.load();
-                Stage s = (Stage) changePwdBtn.getScene().getWindow();
-                s.setScene(new Scene(root));
-            } catch (IOException e){
-                e.printStackTrace();
-            }
+            Stage s = (Stage) changePwdBtn.getScene().getWindow();
+            loadPage(s,"LoginPage","LoginPage");
         }
 
     }
     @FXML
     private void changeScene() throws SQLException, IOException {
-        ResourceBundle def_bundle = ResourceBundle.getBundle("src/LoginPage", Locale.getDefault());
-        FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource("/src/GUI/ChangePassword.fxml"));
-        loader.setResources(def_bundle);
-        try{
-            Parent root = loader.load();
-            Stage s = (Stage) forgotPass.getScene().getWindow();
-            s.setScene(new Scene(root));
-        } catch (IOException e){
-            e.printStackTrace();
-        }
+        Stage s = (Stage) forgotPass.getScene().getWindow();
+        loadPage(s,"LoginPage","ChangePassword");
+    }
+
+    @FXML
+    private void go_back() throws IOException {
+        Stage s = (Stage) BackButton.getScene().getWindow();
+        loadPage(s,"LoginPage","LoginPage");
     }
 
     @FXML
     private void register() throws IOException {
-        ResourceBundle def_bundle = ResourceBundle.getBundle("src/LoginPage", Locale.getDefault());
-        FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource("/src/GUI/RegistartionPage.fxml"));
-        loader.setResources(def_bundle);
+        Stage s = (Stage) RegisterButton.getScene().getWindow();
+        loadPage(s,"LoginPage","RegistrationPage");
 
-        try{
-            Parent root = loader.load();
-            Stage s = (Stage) loginButton.getScene().getWindow();
-            s.setScene(new Scene(root));
-        } catch (IOException e){
-            e.printStackTrace();
-        }
+
     }
 
     //testovacia funkcia
@@ -176,9 +150,9 @@ public class LoginController extends Controller{
 
     @FXML
     private void LoadView(Locale locale) throws IOException {
-        ResourceBundle def_bundle = ResourceBundle.getBundle("src/RegistrationPage", locale);
+        ResourceBundle def_bundle = ResourceBundle.getBundle("src/LoginPage", locale);
         FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource("/src/GUI/RegistrationPage.fxml"));
+        loader.setLocation(getClass().getResource("/src/GUI/LoginPage.fxml"));
         loader.setResources(def_bundle);
         try{
             Parent root = loader.load();
