@@ -26,7 +26,7 @@
         <Button fx:id="loginButton" layoutX="360.0" layoutY="273.0" mnemonicParsing="false" onAction="#login" prefHeight="26.0" prefWidth="160.0" style="-fx-background-color: #176285#176285;" text="%loginButton" textFill="WHITE" />
         <Label fx:id="forgotPass" layoutX="361.0" layoutY="244.0" onMouseClicked="#changeScene" text="%forgotPass" textFill="#176285" />
       <Label layoutX="431.0" layoutY="307.0" text="%or" textFill="#176285" />
-      <Button fx:id="RegisterButton" layoutX="360.0" layoutY="331.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="160.0" style="-fx-background-color: #00e6e6#00e6e6;" text="%registerButton" textFill="WHITE" />
+      <Button fx:id="RegisterButton" layoutX="360.0" layoutY="331.0" onAction="#register" mnemonicParsing="false" prefHeight="26.0" prefWidth="160.0" style="-fx-background-color: #00e6e6#00e6e6;" text="%registerButton" textFill="WHITE" />
       <ImageView fitHeight="127.0" fitWidth="293.0" layoutX="294.0" layoutY="7.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../../Images/Logo.png" />
