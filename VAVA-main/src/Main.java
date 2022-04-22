@@ -17,9 +17,9 @@ public class Main<aspect> extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception{
         Locale.setDefault(new Locale("en"));
-        ResourceBundle def_bundle = ResourceBundle.getBundle("src/Resources/RegistrationPage", Locale.getDefault());
+        ResourceBundle def_bundle = ResourceBundle.getBundle("src/Resources/LoginPage", Locale.getDefault());
 
-        Parent root = FXMLLoader.load(getClass().getResource("/src/GUI/RegistrationPage.fxml"), def_bundle);
+        Parent root = FXMLLoader.load(getClass().getResource("/src/GUI/LoginPage.fxml"), def_bundle);
         primaryStage.setTitle("Vava_Project");
         primaryStage.setScene(new Scene(root, 640, 480));
         primaryStage.setResizable(false);

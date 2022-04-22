@@ -54,7 +54,7 @@ public class RegistrationController extends Controller {
     private void changePageLang() throws SQLException, IOException {
         Stage s = (Stage) email.getScene().getWindow();
         changeDefLoc();
-        loadPage(s, "RegistrationPage", "RegistrationPage");
+        loadPage(s, "RegistrationPage");
     }
 
     @FXML
@@ -100,7 +100,7 @@ public class RegistrationController extends Controller {
                     succesfullyRegistered.showAndWait();
 
                     Stage s = (Stage) registerButton.getScene().getWindow();
-                    loadPage(s,"LoginPage","LoginPage");
+                    loadPage(s,"LoginPage");
                 }else{
                     Alert existingEmail = new Alert(Alert.AlertType.INFORMATION);
                     existingEmail.setTitle("Email already registered");
@@ -114,9 +114,8 @@ public class RegistrationController extends Controller {
     @FXML
     private void go_to_login() throws IOException {
         Stage s = (Stage) logInButton.getScene().getWindow();
-        loadPage(s,"LoginPage","LoginPage");
+        loadPage(s,"LoginPage");
     }
-
 
 
     @FXML

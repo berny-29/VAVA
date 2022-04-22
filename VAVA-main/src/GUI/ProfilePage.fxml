@@ -1,23 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.net.URL?>
+<?import javafx.scene.chart.BarChart?>
+<?import javafx.scene.chart.CategoryAxis?>
+<?import javafx.scene.chart.NumberAxis?>
+<?import javafx.scene.chart.PieChart?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
 
-
-<?import java.net.URL?>
-<AnchorPane prefHeight="400.0" prefWidth="600.0" styleClass="anchor" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="src.Controllers.ProfileController">
+<AnchorPane prefHeight="400.0" prefWidth="600.0" styleClass="anchor" xmlns="http://javafx.com/javafx/17.0.2" xmlns:fx="http://javafx.com/fxml/1" fx:controller="src.Controllers.ProfileController">
   <stylesheets>
     <URL value="@../../application.css" />
   </stylesheets>
   <children>
       <TabPane prefHeight="401.0" prefWidth="600.0" tabClosingPolicy="UNAVAILABLE">
         <tabs>
-          <Tab text="Statistics">
+          <Tab text="%tab.statistics">
             <content>
               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="439.0" prefWidth="433.0">
                      <children>
-                        <Label layoutX="20.0" layoutY="15.0" prefHeight="30.0" prefWidth="192.0" style="-fx-alignment: center-left;" text="My statistics">
+                        <Label layoutX="20.0" layoutY="15.0" prefHeight="30.0" prefWidth="192.0" style="-fx-alignment: center-left;" text="%label.myStatistics">
                            <font>
                               <Font size="20.0" />
                            </font>
@@ -34,11 +42,11 @@
                      </children></AnchorPane>
             </content>
           </Tab>
-          <Tab text="Calendar">
+          <Tab text="%tab.calendar">
             <content>
               <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
-                        <Label layoutX="20.0" layoutY="15.0" prefHeight="30.0" prefWidth="163.0" style="-fx-alignment: center-left;" text="My Calendar">
+                        <Label layoutX="20.0" layoutY="15.0" prefHeight="30.0" prefWidth="163.0" style="-fx-alignment: center-left;" text="%label.myCalendar">
                            <font>
                               <Font size="20.0" />
                            </font>
@@ -46,11 +54,11 @@
                      </children></AnchorPane>
             </content>
           </Tab>
-            <Tab text="Plans">
+            <Tab text="%tab.plans">
               <content>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
                      <children>
-                        <Label layoutX="20.0" layoutY="15.0" prefHeight="30.0" prefWidth="176.0" style="-fx-alignment: center-left;" text="My Plans">
+                        <Label layoutX="20.0" layoutY="15.0" prefHeight="30.0" prefWidth="176.0" style="-fx-alignment: center-left;" text="%label.myPlans">
                            <font>
                               <Font size="20.0" />
                            </font>
@@ -58,7 +66,7 @@
                      </children></AnchorPane>
               </content>
             </Tab>
-            <Tab text="Your Children">
+            <Tab text="%tab.children">
               <content>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="600.0" />
               </content>
@@ -72,7 +80,7 @@
                   <Image url="@../../Images/Logo_mensie.png" />
                </image>
             </ImageView>
-            <Button fx:id="logOutButton" layoutX="18.0" layoutY="399.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="128.0" style="-fx-background-color: #176285#176285;" text="Log Out" textFill="WHITE" />
+            <Button fx:id="logOutButton" layoutX="18.0" layoutY="399.0" mnemonicParsing="false" onMouseClicked="#go_to_login" prefHeight="26.0" prefWidth="128.0" style="-fx-background-color: #176285#176285;" text="%button.logOut" textFill="WHITE" />
             <ImageView fitHeight="54.0" fitWidth="52.0" layoutX="57.0" layoutY="98.0" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../Images/progress.png" />
@@ -88,7 +96,7 @@
                   <Image url="@../../Images/food.png" />
                </image>
             </ImageView>
-            <Button fx:id="languageSwitch" layoutX="17.0" layoutY="360.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="128.0" style="-fx-background-color: #176285#176285;" text="SK  | EN" textFill="WHITE" />
+            <Button fx:id="languageSwitch" layoutX="17.0" layoutY="360.0" mnemonicParsing="false" onMouseClicked="#changePageLang" prefHeight="26.0" prefWidth="128.0" style="-fx-background-color: #176285#176285;" text="SK  | EN" textFill="WHITE" />
          </children>
       </AnchorPane>
    </children>

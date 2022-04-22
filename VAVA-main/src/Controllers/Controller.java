@@ -24,10 +24,10 @@ abstract class Controller  {
         ResourceBundle.clearCache();
     }
     @FXML
-    public void loadPage(Stage s, String pageName, String fxmlPage) throws IOException {
+    public void loadPage(Stage s, String pageName) throws IOException {
         ResourceBundle def_bundle = ResourceBundle.getBundle("src/Resources/"+pageName, Locale.getDefault());
         FXMLLoader loader = new FXMLLoader();
-        loader.setLocation(getClass().getResource("/src/GUI/"+fxmlPage+".fxml"));
+        loader.setLocation(getClass().getResource("/src/GUI/"+pageName+".fxml"));
         loader.setResources(def_bundle);
 
         try{

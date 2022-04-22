@@ -63,7 +63,7 @@ public class LoginController extends Controller {
     private void changePageLang() throws SQLException, IOException {
         Stage s = (Stage) email.getScene().getWindow();
         changeDefLoc();
-        loadPage(s, "LoginPage", "LoginPage");
+        loadPage(s, "LoginPage");
     }
 
     @FXML
@@ -74,8 +74,8 @@ public class LoginController extends Controller {
 
         if(Account.userLogin(emailField, passwordField)){
             Stage s = (Stage) loginButton.getScene().getWindow();
-            loadPage(s,"LoginPage","ProfilePage");
-            //logging
+            loadPage(s,"ProfilePage");
+            //loggingsa
             Account.loginLogger(emailField,passwordField,"succes");
         }else{
             Alert existingEmail = new Alert(Alert.AlertType.CONFIRMATION);
@@ -91,13 +91,13 @@ public class LoginController extends Controller {
     @FXML
     private void forgotenPassword() throws SQLException, IOException {
         Stage s = (Stage) forgotPass.getScene().getWindow();
-        loadPage(s,"LoginPage","ChangePassword");
+        loadPage(s,"ChangePassword");
     }
 
     @FXML
     private void register() throws IOException {
         Stage s = (Stage) RegisterButton.getScene().getWindow();
-        loadPage(s,"LoginPage","RegistrationPage");
+        loadPage(s,"RegistrationPage");
 
 
     }

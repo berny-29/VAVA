@@ -48,7 +48,7 @@ public class ChangePasswordController extends Controller{
     private void changePageLang() throws SQLException, IOException {
         Stage s = (Stage) myEmail.getScene().getWindow();
         changeDefLoc();
-        loadPage(s, "ChangePassword", "ChangePassword");
+        loadPage(s, "ChangePassword");
     }
 
     @FXML
@@ -76,7 +76,7 @@ public class ChangePasswordController extends Controller{
 
             existingEmail.showAndWait();
             Stage s = (Stage) changePwdBtn.getScene().getWindow();
-            loadPage(s,"LoginPage","LoginPage");
+            loadPage(s,"LoginPage");
         }
 
     }
@@ -84,6 +84,6 @@ public class ChangePasswordController extends Controller{
     @FXML
     private void go_back() throws IOException {
         Stage s = (Stage) BackButton.getScene().getWindow();
-        loadPage(s,"LoginPage","LoginPage");
+        loadPage(s,"LoginPage");
     }
 }
