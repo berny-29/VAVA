@@ -75,11 +75,15 @@ public class LoginController extends Controller {
         if(Account.userLogin(emailField, passwordField)){
             Stage s = (Stage) loginButton.getScene().getWindow();
             loadPage(s,"LoginPage","ProfilePage");
+            //logging
+            Account.loginLogger(emailField,passwordField,"succes");
         }else{
             Alert existingEmail = new Alert(Alert.AlertType.CONFIRMATION);
             existingEmail.setTitle("Wrong credentials");
             existingEmail.setContentText("Wrong credentials! Please try again");
             existingEmail.showAndWait();
+            //logging
+            Account.loginLogger(emailField,passwordField,"failure");
         }
 
     }

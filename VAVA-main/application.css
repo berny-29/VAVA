@@ -3,3 +3,33 @@
     -fx-background-repeat: no-repeat;
     -fx-background-size:cover;
 }
+
+/*#176285*/
+
+.tab-pane > .tab-header-area {
+    -fx-padding: 0;
+}
+
+.tab-pane > .tab-header-area > .tab-header-background {
+    -fx-background-color: #E1E1E1, #176285;
+    -fx-background-insets: 0, 0 0 1px 0;
+}
+
+.tab-pane > .tab-header-area > .headers-region > .tab {
+    -fx-background-color: #176285;
+    -fx-background-insets: 0 0 1px 0;
+    -fx-padding: 1em 1em;
+}
+
+.tab-pane > .tab-header-area > .headers-region > .tab >.tab-container >.tab-label {
+    -fx-text-fill: white;
+}
+
+.tab-pane > .tab-header-area > .headers-region > .tab:selected {
+    -fx-background-color: white, #12506d;
+    -fx-background-insets: 0, 0 0 3px 0;
+}
+
+.tab-pane > .tab-header-area > .headers-region > .tab:selected >.tab-container >.focus-indicator {
+    -fx-opacity: 0;
+}
