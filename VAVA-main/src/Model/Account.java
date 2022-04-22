@@ -13,6 +13,22 @@ public class Account {
     private int id ;
     private String name, password, email;
 
+    public static void loginLogger(String email, String password,String status) throws SQLException{
+
+        Connection conn = Database.getInstance().getConnection();
+
+        String insert = "INSERT INTO logs (email,password,status,time) VALUES(?,?,?,?)";
+
+        PreparedStatement pi = conn.prepareStatement(insert);
+        pi.setString(1,email);
+        pi.setString(2,password);
+        pi.setString(3,status);
+        pi.setTimestamp(4,java.sql.Timestamp.valueOf(java.time.LocalDateTime.now()));
+
+        pi.executeUpdate();
+
+    }
+
     public static boolean accountRegistration(String firstname,String lastname,String sex,String date, String password, String email) throws SQLException {
 
         Connection conn = Database.getInstance().getConnection();
