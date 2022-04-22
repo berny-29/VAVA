@@ -25,13 +25,15 @@
         <PasswordField fx:id="password" layoutX="388.0" layoutY="245.0" prefHeight="25.0" prefWidth="160.0" promptText="%password" />
         <Button fx:id="loginButton" layoutX="388.0" layoutY="311.0" mnemonicParsing="false" onAction="#login" prefHeight="26.0" prefWidth="160.0" style="-fx-background-color: #176285#176285;" text="%loginButton" textFill="WHITE" />
         <Label fx:id="forgotPass" layoutX="375.0" layoutY="276.0" onMouseClicked="#changeScene" prefHeight="17.0" prefWidth="189.0" style="-fx-alignment: center;" text="%forgotPass" textFill="#176285" />
-      <Label layoutX="438.0" layoutY="345.0" prefHeight="17.0" prefWidth="60.0" style="-fx-alignment: center;" text="%or" textFill="#176285" />
-      <Button fx:id="RegisterButton" layoutX="388.0" layoutY="370.0" mnemonicParsing="false" onAction="#register" prefHeight="26.0" prefWidth="160.0" style="-fx-background-color: #00e6e6#00e6e6;" text="%registerButton" textFill="WHITE" />
-      <ImageView fitHeight="140.0" fitWidth="320.0" layoutX="312.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true">
-         <image>
-            <Image url="@../../Images/Logo.png" />
-         </image>
-      </ImageView>
+        <Label layoutX="438.0" layoutY="345.0" prefHeight="17.0" prefWidth="60.0" style="-fx-alignment: center;" text="%or" textFill="#176285" />
+        <Button fx:id="RegisterButton" layoutX="388.0" layoutY="370.0" mnemonicParsing="false" onAction="#register" prefHeight="26.0" prefWidth="160.0" style="-fx-background-color: #00e6e6#00e6e6;" text="%registerButton" textFill="WHITE" />
+        <ImageView fitHeight="140.0" fitWidth="320.0" layoutX="312.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../../Images/Logo.png" />
+            </image>
+        </ImageView>
+        <Label fx:id="languageSK" layoutX="585.0" layoutY="6.0" text="SK | " onMouseClicked="#test_loc"/>
+        <Label fx:id="languageEN" layoutX="608.0" layoutY="6.0" text="EN" onMouseClicked="#test_loc"/>
     </children>
 
 </AnchorPane>
