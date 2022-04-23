@@ -35,10 +35,6 @@ public class ProfileController extends Controller{
     }
 
 
-
-
-    // Tab plany
-
     @FXML
     private Button createPlan;
 
@@ -84,6 +80,30 @@ public class ProfileController extends Controller{
 
     @FXML
     private Button viewChildButton;
+
+    @FXML
+    private DatePicker calendarDateTask;
+
+    @FXML
+    private TextArea chatTextArea;
+
+    @FXML
+    private TextArea hoursTasksTextArea;
+
+    @FXML
+    private TextArea messageTextArea;
+
+    @FXML
+    private TextArea myInfoTextArea;
+
+    @FXML
+    private TextField newEmail;
+
+    @FXML
+    private Button sendMessageButton;
+
+    @FXML
+    private Button showTasksButton;
 
 }
 
