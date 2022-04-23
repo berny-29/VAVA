@@ -5,6 +5,9 @@ import javafx.scene.chart.BarChart;
 import javafx.scene.chart.PieChart;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
+import javafx.scene.control.ChoiceBox;
+import javafx.scene.control.DatePicker;
+import javafx.scene.control.TextArea;
 
 import java.io.IOException;
 import java.sql.SQLException;
@@ -33,5 +36,29 @@ public class ProfileController extends Controller{
         Stage s = (Stage) PieChart.getScene().getWindow();
         loadPage(s,"LoginPage");
     }
+
+
+
+
+    // Tab plany
+
+    @FXML
+    private Button createPlan;
+
+    @FXML
+    private Button deletePlan;
+
+    @FXML
+    private TextArea myPlansArea;
+
+    @FXML
+    private DatePicker pickDate;
+
+    @FXML
+    private ChoiceBox<?> selectDeletePlan;
+
+    @FXML
+    private ChoiceBox<?> selectNewPlan;
+
 }
 
