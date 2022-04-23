@@ -9,9 +9,11 @@
 <?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
 <?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -89,24 +91,43 @@
             </Tab>
             <Tab text="%tab.children">
               <content>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="480.0" prefWidth="640.0">
-                     <children>
-                        <Label layoutX="9.0" layoutY="8.0" prefHeight="30.0" prefWidth="283.0" text="%label.myChildren">
-                           <font>
-                              <Font size="20.0" />
-                           </font>
-                        </Label>
-                        <TextArea fx:id="myChildrenArea" editable="false" layoutX="16.0" layoutY="50.0" prefHeight="120.0" prefWidth="434.0" />
-                        <Label layoutX="9.0" layoutY="230.0" prefHeight="30.0" prefWidth="242.0" text="%label.assignPlan">
-                           <font>
-                              <Font size="20.0" />
-                           </font>
-                        </Label>
-                        <ChoiceBox fx:id="selectChild" layoutX="9.0" layoutY="281.0" prefHeight="32.0" prefWidth="176.0" />
-                        <ChoiceBox fx:id="selectChildPlan" layoutX="217.0" layoutY="281.0" prefHeight="32.0" prefWidth="176.0" />
-                        <DatePicker fx:id="pickChildDate" layoutX="9.0" layoutY="334.0" prefHeight="31.0" prefWidth="176.0" promptText="%datePicker.childStartTime" />
-                        <Button fx:id="assignChildPlan" layoutX="220.0" layoutY="336.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="173.0" style="-fx-background-color: #176285#176285;" text="%button.assignChildPlan" textFill="WHITE" />
-                     </children></AnchorPane>
+                  <ScrollPane prefHeight="436.0" prefWidth="389.0">
+                     <content>
+                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="600.0" prefWidth="470.0">
+                           <children>
+                              <Label layoutX="9.0" layoutY="8.0" prefHeight="30.0" prefWidth="283.0" text="%label.myChildren">
+                                 <font>
+                                    <Font size="20.0" />
+                                 </font>
+                              </Label>
+                              <TextArea fx:id="myChildrenArea" editable="false" layoutX="16.0" layoutY="50.0" prefHeight="120.0" prefWidth="434.0" />
+                              <Label layoutX="9.0" layoutY="430.0" prefHeight="30.0" prefWidth="242.0" text="%label.assignPlan">
+                                 <font>
+                                    <Font size="20.0" />
+                                 </font>
+                              </Label>
+                              <ChoiceBox fx:id="selectChild" layoutX="9.0" layoutY="481.0" prefHeight="32.0" prefWidth="176.0" />
+                              <ChoiceBox fx:id="selectChildPlan" layoutX="230.0" layoutY="481.0" prefHeight="32.0" prefWidth="176.0" />
+                              <DatePicker fx:id="pickChildDate" layoutX="9.0" layoutY="534.0" prefHeight="31.0" prefWidth="176.0" promptText="%datePicker.childStartTime" />
+                              <Button fx:id="assignChildPlan" layoutX="233.0" layoutY="536.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="173.0" style="-fx-background-color: #176285#176285;" text="%button.assignChildPlan" textFill="WHITE" />
+                              <Label layoutX="9.0" layoutY="327.0" prefHeight="30.0" prefWidth="283.0" text="%label.addChildren">
+                                 <font>
+                                    <Font size="20.0" />
+                                 </font>
+                              </Label>
+                              <Label layoutX="9.0" layoutY="185.0" prefHeight="30.0" prefWidth="283.0" text="%label.viewChild">
+                                 <font>
+                                    <Font size="20.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="childNameTextField" layoutX="9.0" layoutY="380.0" prefHeight="25.0" prefWidth="176.0" promptText="%textField.enterChildName" />
+                              <Button fx:id="addChildButton" layoutX="219.0" layoutY="379.0" mnemonicParsing="false" onMouseClicked="#go_to_login" prefHeight="26.0" prefWidth="159.0" style="-fx-background-color: #176285#176285;" text="%button.addChild" textFill="WHITE" />
+                              <ChoiceBox fx:id="selectChild1" layoutX="9.0" layoutY="232.0" prefHeight="32.0" prefWidth="176.0" />
+                              <Button fx:id="addChildButton1" layoutX="219.0" layoutY="235.0" mnemonicParsing="false" onMouseClicked="#go_to_login" prefHeight="26.0" prefWidth="159.0" style="-fx-background-color: #176285#176285;" text="%button.viewChild" textFill="WHITE" />
+                           </children>
+                        </AnchorPane>
+                     </content>
+                  </ScrollPane>
               </content>
             </Tab>
         </tabs>
