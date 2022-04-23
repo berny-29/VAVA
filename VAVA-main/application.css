@@ -5,6 +5,16 @@
 }
 
 
+/* Text field */
+.text-field {
+    -fx-background-color: -fx-text-box-border, -fx-background ;
+    -fx-background-insets: 0, 0 0 1 0 ;
+    -fx-background-radius: 0 ;
+}
+.text-field:focused {
+    -fx-background-color: -fx-focus-color, -fx-background ;
+}
+
 
  /*Tab pane design*/
 .tab-pane > .tab-header-area {
@@ -37,22 +47,78 @@
 
 
 
- /*Create plans design*/
-.textarea {
-    /*-fx-background-color: #65bde6;*/
-    -fx-border-style: none;
-    -fx-focus-color: transparent;
+/* Create plans design */
+.text-area {
+    -fx-font-family: Consolas;
+    -fx-font-size: 15;
+    -fx-text-fill: #000000;
+    -fx-display-caret:true;
+    -fx-padding: 0;
+    -fx-border: 0;
+}
+
+.text-area .content {
+    -fx-background-color: #aab4bb;
+}
+
+
+.choice-box .context-menu {
+    -fx-background-color: #aab4bb;
+}
+.choice-box .menu-item:focused {
+    -fx-background-color: #176285;
+}
+
+.choice-box .menu-item > .label {
+    -fx-text-fill: white;
+
+}
+.choice-box .menu-item:focused > .label {
+    -fx-text-fill: white;
 }
 
 
 
-
- /* Text field */
-.text-field {
-    -fx-background-color: -fx-text-box-border, -fx-background ;
-    -fx-background-insets: 0, 0 0 1 0 ;
-    -fx-background-radius: 0 ;
+.date-picker .arrow-button {
+    -fx-background-color: #ff8080;
+    -fx-background-radius: 0;
 }
-.text-field:focused {
-    -fx-background-color: -fx-focus-color, -fx-background ;
+.date-picker .arrow-button:hover {
+    -fx-background-color: #176285;
+}
+.date-picker .arrow-button .arrow {
+    -fx-background-color: white;
+}
+.date-picker .cell {
+    -fx-background-color: white;
+}
+.date-picker .cell:hover {
+    -fx-background-color: #aab4bb;
+}
+.date-picker .cell:focused {
+    -fx-background-color: #176285;
+}
+.date-picker .selected {
+    -fx-background-color: #176285;
+    -fx-text-fill: white;
+}
+.date-picker .selected:focused {
+    -fx-background-color: #176285;
+    -fx-text-fill: white;
+}
+.date-picker-popup  {
+    -fx-border-color: transparent;
+}
+.date-picker-popup .month-year-pane {
+    -fx-background-color: #ff8080
+}
+.date-picker-popup .month-year-pane .label {
+    -fx-text-fill: white;
+}
+.date-picker-popup .week-number-cell {
+    -fx-text-fill: #aab4bb;
+}
+.date-picker-popup .spinner .button .left-arrow,
+.date-picker-popup .spinner .button .right-arrow {
+    -fx-background-color: white;
 }

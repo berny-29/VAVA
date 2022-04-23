@@ -76,8 +76,8 @@
                         <ChoiceBox fx:id="selectNewPlan" layoutX="9.0" layoutY="254.0" prefHeight="30.0" prefWidth="157.0" />
                         <DatePicker fx:id="pickDate" layoutX="176.0" layoutY="254.0" prefHeight="31.0" prefWidth="164.0" promptText="%datePicker.startTime" />
                         <Button fx:id="createPlan" layoutX="370.0" layoutY="254.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="77.0" style="-fx-background-color: #176285#176285;" text="%button.createPlan" textFill="WHITE" />
-                        <Button fx:id="deletePlan" layoutX="189.0" layoutY="364.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="77.0" style="-fx-background-color: #176285#176285;" text="%button.deletePlan" textFill="WHITE" />
-                        <ChoiceBox fx:id="selectDeletePlan" layoutX="7.0" layoutY="362.0" prefHeight="30.0" prefWidth="157.0" />
+                        <Button fx:id="deletePlan" layoutX="193.0" layoutY="363.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="77.0" style="-fx-background-color: #176285#176285;" text="%button.deletePlan" textFill="WHITE" />
+                        <ChoiceBox fx:id="selectDeletePlan" layoutX="9.0" layoutY="363.0" prefHeight="30.0" prefWidth="157.0" />
                         <Label layoutX="8.0" layoutY="313.0" prefHeight="39.0" prefWidth="234.0" text="%label.deletePlan">
                            <font>
                               <Font size="20.0" />
