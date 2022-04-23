@@ -62,13 +62,13 @@
               <content>
                 <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="325.0">
                      <children>
-                        <Label layoutX="9.0" layoutY="8.0" prefHeight="30.0" prefWidth="176.0" style="-fx-alignment: center-left;" text="%label.myPlans">
+                        <Label layoutX="9.0" layoutY="8.0" prefHeight="30.0" prefWidth="266.0" style="-fx-alignment: center-left;" text="%label.myPlans">
                            <font>
                               <Font size="20.0" />
                            </font>
                         </Label>
-                        <TextArea fx:id="myPlansArea" layoutX="14.0" layoutY="56.0" prefHeight="120.0" prefWidth="434.0" />
-                        <Label layoutX="9.0" layoutY="205.0" prefHeight="39.0" prefWidth="234.0" text="%label.createPlan">
+                        <TextArea fx:id="myPlansArea" editable="false" layoutX="14.0" layoutY="56.0" prefHeight="120.0" prefWidth="434.0" />
+                        <Label layoutX="9.0" layoutY="205.0" prefHeight="39.0" prefWidth="301.0" text="%label.createPlan">
                            <font>
                               <Font size="20.0" />
                            </font>
@@ -78,7 +78,7 @@
                         <Button fx:id="createPlan" layoutX="370.0" layoutY="254.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="77.0" style="-fx-background-color: #176285#176285;" text="%button.createPlan" textFill="WHITE" />
                         <Button fx:id="deletePlan" layoutX="193.0" layoutY="363.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="77.0" style="-fx-background-color: #176285#176285;" text="%button.deletePlan" textFill="WHITE" />
                         <ChoiceBox fx:id="selectDeletePlan" layoutX="9.0" layoutY="363.0" prefHeight="30.0" prefWidth="157.0" />
-                        <Label layoutX="8.0" layoutY="313.0" prefHeight="39.0" prefWidth="234.0" text="%label.deletePlan">
+                        <Label layoutX="8.0" layoutY="313.0" prefHeight="39.0" prefWidth="268.0" text="%label.deletePlan">
                            <font>
                               <Font size="20.0" />
                            </font>
@@ -89,7 +89,24 @@
             </Tab>
             <Tab text="%tab.children">
               <content>
-                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="480.0" prefWidth="640.0" />
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="480.0" prefWidth="640.0">
+                     <children>
+                        <Label layoutX="9.0" layoutY="8.0" prefHeight="30.0" prefWidth="283.0" text="%label.myChildren">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Label>
+                        <TextArea fx:id="myChildrenArea" editable="false" layoutX="16.0" layoutY="50.0" prefHeight="120.0" prefWidth="434.0" />
+                        <Label layoutX="9.0" layoutY="230.0" prefHeight="30.0" prefWidth="242.0" text="%label.assignPlan">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Label>
+                        <ChoiceBox fx:id="selectChild" layoutX="9.0" layoutY="281.0" prefHeight="32.0" prefWidth="176.0" />
+                        <ChoiceBox fx:id="selectChildPlan" layoutX="217.0" layoutY="281.0" prefHeight="32.0" prefWidth="176.0" />
+                        <DatePicker fx:id="pickChildDate" layoutX="9.0" layoutY="334.0" prefHeight="31.0" prefWidth="176.0" promptText="%datePicker.childStartTime" />
+                        <Button fx:id="assignChildPlan" layoutX="220.0" layoutY="336.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="173.0" style="-fx-background-color: #176285#176285;" text="%button.assignChildPlan" textFill="WHITE" />
+                     </children></AnchorPane>
               </content>
             </Tab>
         </tabs>
