@@ -3,11 +3,8 @@ package src.Controllers;
 import javafx.fxml.FXML;
 import javafx.scene.chart.BarChart;
 import javafx.scene.chart.PieChart;
-import javafx.scene.control.Button;
+import javafx.scene.control.*;
 import javafx.stage.Stage;
-import javafx.scene.control.ChoiceBox;
-import javafx.scene.control.DatePicker;
-import javafx.scene.control.TextArea;
 
 import java.io.IOException;
 import java.sql.SQLException;
@@ -59,6 +56,34 @@ public class ProfileController extends Controller{
 
     @FXML
     private ChoiceBox<?> selectNewPlan;
+
+
+    @FXML
+    private Button addChildButton;
+
+    @FXML
+    private Button assignChildPlan;
+
+    @FXML
+    private TextField childNameTextField;
+
+    @FXML
+    private TextArea myChildrenArea;
+
+    @FXML
+    private DatePicker pickChildDate;
+
+    @FXML
+    private ChoiceBox<?> selectChild;
+
+    @FXML
+    private ChoiceBox<?> selectChild1;
+
+    @FXML
+    private ChoiceBox<?> selectChildPlan;
+
+    @FXML
+    private Button viewChildButton;
 
 }
 
