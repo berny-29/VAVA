@@ -80,7 +80,7 @@
 
 
 .date-picker .arrow-button {
-    -fx-background-color: #ff8080;
+    -fx-background-color: #00cca3;
     -fx-background-radius: 0;
 }
 .date-picker .arrow-button:hover {
@@ -110,7 +110,7 @@
     -fx-border-color: transparent;
 }
 .date-picker-popup .month-year-pane {
-    -fx-background-color: #ff8080
+    -fx-background-color: #00cca3;
 }
 .date-picker-popup .month-year-pane .label {
     -fx-text-fill: white;
