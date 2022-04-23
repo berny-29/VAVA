@@ -52,6 +52,7 @@
     -fx-font-family: Consolas;
     -fx-font-size: 15;
     -fx-text-fill: #000000;
+    -fx-background-radius: 5;
     -fx-display-caret:true;
     -fx-padding: 0;
     -fx-border: 0;
@@ -59,6 +60,7 @@
 
 .text-area .content {
     -fx-background-color: #aab4bb;
+
 }
 
 

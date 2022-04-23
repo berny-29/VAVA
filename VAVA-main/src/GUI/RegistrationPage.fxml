@@ -45,10 +45,10 @@
                   <Font size="12.0" />
                </font>
             </CheckBox>
-            <Button fx:id="registerButton" layoutX="386.0" layoutY="396.0" mnemonicParsing="false" onAction="#register" prefHeight="30.0" prefWidth="159.0" style="-fx-background-color: #176285#176285;" text="%button.createAccount" textFill="WHITE" />
+            <Button fx:id="registerButton" layoutX="386.0" layoutY="396.0" mnemonicParsing="false" onAction="#register" prefHeight="30.0" prefWidth="159.0" style="-fx-background-color: #176285#176285; -fx-background-radius: 5;" text="%button.createAccount" textFill="WHITE" />
             <DatePicker fx:id="birthDate" layoutX="369.0" layoutY="310.0" prefHeight="26.0" prefWidth="194.0" promptText="%date.birthDate" />
             <Label layoutX="370.0" layoutY="435.0" prefHeight="17.0" prefWidth="192.0" style="-fx-alignment: center;" text="%label.alreadyRegistered" textAlignment="RIGHT" textFill="#176285" />
-            <Button fx:id="logInButton" layoutX="386.0" layoutY="460.0" mnemonicParsing="false" onAction="#go_to_login" prefHeight="27.0" prefWidth="159.0" style="-fx-background-color: #00e6e6#00e6e6 #00e6e6#00e6e6;" text="%button.login" textFill="WHITE" />
+            <Button fx:id="logInButton" layoutX="386.0" layoutY="460.0" mnemonicParsing="false" onAction="#go_to_login" prefHeight="27.0" prefWidth="159.0" style="-fx-background-color: #00e6e6#00e6e6 #00e6e6#00e6e6; -fx-background-radius: 5;" text="%button.login" textFill="WHITE" />
             <Label fx:id="languageSwitch" layoutX="555.0" layoutY="6.0" onMouseClicked="#changePageLang" text="SK  |  EN" />
          </children>
       </AnchorPane>

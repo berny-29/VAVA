@@ -9,6 +9,7 @@
 <?import javafx.scene.control.ChoiceBox?>
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
 <?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
@@ -70,7 +71,7 @@
                               <Font size="20.0" />
                            </font>
                         </Label>
-                        <TextArea fx:id="myPlansArea" editable="false" layoutX="14.0" layoutY="55.0" prefHeight="120.0" prefWidth="434.0" />
+                        <TextArea fx:id="myPlansArea" editable="false" layoutX="14.0" layoutY="55.0" prefHeight="120.0" prefWidth="434.0" wrapText="true" />
                         <Label layoutX="9.0" layoutY="205.0" prefHeight="39.0" prefWidth="301.0" text="%label.createPlan">
                            <font>
                               <Font size="20.0" />
@@ -101,7 +102,7 @@
                                     <Font size="20.0" />
                                  </font>
                               </Label>
-                              <TextArea fx:id="myChildrenArea" editable="false" layoutX="14.0" layoutY="55.0" prefHeight="120.0" prefWidth="434.0" />
+                              <TextArea fx:id="myChildrenArea" editable="false" layoutX="16.0" layoutY="53.0" prefHeight="120.0" prefWidth="434.0" wrapText="true" />
                               <Label layoutX="9.0" layoutY="430.0" prefHeight="30.0" prefWidth="242.0" text="%label.assignPlan">
                                  <font>
                                     <Font size="20.0" />
@@ -129,6 +130,32 @@
                         </AnchorPane>
                      </content>
                   </ScrollPane>
+              </content>
+            </Tab>
+            <Tab text="%tab.profile">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <Label layoutX="9.0" layoutY="8.0" prefHeight="30.0" prefWidth="283.0" text="%label.myInfo">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Label>
+                        <Label layoutX="9.0" layoutY="237.0" prefHeight="30.0" prefWidth="283.0" text="%label.contAdmin">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Label>
+                        <TextField fx:id="newEmail" layoutX="220.0" layoutY="55.0" prefHeight="26.0" prefWidth="145.0" promptText="%textField.email" />
+                        <TextArea fx:id="myInfoTextArea" editable="false" layoutX="10.0" layoutY="52.0" prefHeight="168.0" prefWidth="192.0" wrapText="true" />
+                        <PasswordField layoutX="220.0" layoutY="102.0" prefHeight="26.0" prefWidth="145.0" promptText="%passField.newPasswd" />
+                        <PasswordField layoutX="220.0" layoutY="148.0" prefHeight="26.0" prefWidth="145.0" promptText="%passField.retypePasswd" />
+                        <Button layoutX="221.0" layoutY="186.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="144.0" style="-fx-background-color: #176285#176285; -fx-background-radius: 5;" text="%button.updateInfo" />
+                        <Button fx:id="sendMessageButton" layoutX="249.0" layoutY="381.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="156.0" style="-fx-background-color: #176285#176285; -fx-background-radius: 5;" text="%button.sendMessage" />
+                        <TextArea fx:id="chatTextArea" editable="false" layoutX="9.0" layoutY="271.0" prefHeight="140.0" prefWidth="203.0" wrapText="true" />
+                        <TextArea fx:id="messageTextArea" layoutX="248.0" layoutY="271.0" prefHeight="105.0" prefWidth="159.0" promptText="%textArea.message" wrapText="true" />
+                     </children>
+                  </AnchorPane>
               </content>
             </Tab>
         </tabs>
