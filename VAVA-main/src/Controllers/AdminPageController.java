@@ -45,5 +45,10 @@ public class AdminPageController {
 
     @FXML
     private TextArea userLogsTextArea;
+    
+    @FXML
+    public void initialize() throws SQLException {
+        userLogsTextArea.setText(Account.getLogs().toString());
+    }
 
 }
