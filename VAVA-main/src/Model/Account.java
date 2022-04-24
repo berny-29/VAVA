@@ -103,6 +103,37 @@ public class Account {
 
 
     }
+    
+    public static StringBuilder getLogs() throws SQLException {
+        LocalDateTime ldt = LocalDateTime.now();
+        LocalDateTime yesterday = ldt.minusDays(1);
+        Timestamp timestamp = Timestamp.valueOf(yesterday);
+
+
+        Connection conn = Database.getInstance().getConnection();
+        StringBuilder str = new StringBuilder();
+
+        String sql = "select * from  logs where time  < cast(? as timestamp)";
+        PreparedStatement pi = conn.prepareStatement(sql);
+        pi.setString(1, String.valueOf(timestamp));
+
+        ResultSet rs = pi.executeQuery();
+        while (rs.next()){
+            str.append(rs.getString(6));
+            str.append("\n");
+            str.append(rs.getString(2));
+            str.append("\n");
+            str.append(rs.getString(3));
+            str.append("\n");
+            str.append(rs.getString(4));
+            str.append("\n");
+            str.append(rs.getString(5));
+            str.append("\n");
+            str.append("\n");
+        }
+
+        return str;
+    }
 
     public static int changePassword(String email, String password, String newPassword) throws SQLException {
 
