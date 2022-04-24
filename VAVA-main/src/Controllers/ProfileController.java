@@ -5,6 +5,7 @@ import javafx.scene.chart.BarChart;
 import javafx.scene.chart.PieChart;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
+import src.Model.Account;
 
 import java.io.IOException;
 import java.sql.SQLException;
@@ -105,5 +106,11 @@ public class ProfileController extends Controller{
     @FXML
     private Button showTasksButton;
 
+
+    public static Account staticACC = new Account();
+
+    public void createTask(){
+
+    }
 }
 

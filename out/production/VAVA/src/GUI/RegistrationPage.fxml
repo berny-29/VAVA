@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<ScrollPane prefHeight="480.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="src.Controllers.RegistrationController">
+   <content>
+      <AnchorPane prefHeight="523.0" prefWidth="625.0" styleClass="anchor">
+         <stylesheets>
+            <URL value="@../../application.css" />
+         </stylesheets>
+         <children>
+            <ImageView fitHeight="125.0" fitWidth="290.0" layoutX="325.0" layoutY="18.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../Images/Logo.png" />
+               </image>
+            </ImageView>
+            <Text fx:id="title" fill="#176285" layoutX="367.0" layoutY="154.0" strokeType="OUTSIDE" strokeWidth="0.0" text="%label.registration" textAlignment="CENTER" wrappingWidth="181.12771606445312">
+               <font>
+                  <Font size="20.0" />
+               </font>
+            </Text>
+            <TextField fx:id="email" layoutX="386.0" layoutY="172.0" promptText="Email" />
+            <PasswordField fx:id="password" layoutX="386.0" layoutY="205.0" promptText="%textField.password" />
+            <TextField fx:id="firstName" layoutX="386.0" layoutY="239.0" promptText="%textField.firstName" />
+            <TextField fx:id="lastName" layoutX="386.0" layoutY="273.0" promptText="%textField.lastName" />
+            <CheckBox fx:id="male" layoutX="408.0" layoutY="367.0" mnemonicParsing="false" text="%box.mSex">
+               <font>
+                  <Font size="12.0" />
+               </font>
+            </CheckBox>
+            <CheckBox fx:id="female" layoutX="478.0" layoutY="367.0" mnemonicParsing="false" text="%box.fSex">
+               <font>
+                  <Font size="12.0" />
+               </font>
+            </CheckBox>
+            <Button fx:id="registerButton" layoutX="386.0" layoutY="396.0" mnemonicParsing="false" onAction="#register" prefHeight="30.0" prefWidth="159.0" style="-fx-background-color: #176285#176285; -fx-background-radius: 5;" text="%button.createAccount" textFill="WHITE" />
+            <DatePicker fx:id="birthDate" layoutX="369.0" layoutY="310.0" prefHeight="26.0" prefWidth="194.0" promptText="%date.birthDate" />
+            <Label layoutX="370.0" layoutY="435.0" prefHeight="17.0" prefWidth="192.0" style="-fx-alignment: center;" text="%label.alreadyRegistered" textAlignment="RIGHT" textFill="#176285" />
+            <Button fx:id="logInButton" layoutX="386.0" layoutY="460.0" mnemonicParsing="false" onAction="#go_to_login" prefHeight="27.0" prefWidth="159.0" style="-fx-background-color: #00e6e6#00e6e6 #00e6e6#00e6e6; -fx-background-radius: 5;" text="%button.login" textFill="WHITE" />
+            <Label fx:id="languageSwitch" layoutX="555.0" layoutY="6.0" onMouseClicked="#changePageLang" text="SK  |  EN" />
+         </children>
+      </AnchorPane>
+   </content>
+</ScrollPane>

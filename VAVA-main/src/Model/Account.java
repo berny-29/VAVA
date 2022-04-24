@@ -1,12 +1,16 @@
 package src.Model;
 
 
+import src.Controllers.ProfileController;
+
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.net.*;
 import java.io.*;
+
+import static src.Controllers.ProfileController.staticACC;
 
 /**
  * @author: Spol XD, akt(Filo,Gajdos,Mark)
@@ -56,8 +60,10 @@ public class Account {
             pi.setString(5,sex);
             pi.setString(6,date);
 
+            staticACC.setStaticAcc(email, password, firstname + " " + lastname);
             int rowi = pi.executeUpdate();
                 System.out.println(rowi);
+
         }else {
             return false;
         }
@@ -114,5 +120,9 @@ public class Account {
         return ip;
     }
 
-
+    public void setStaticAcc(String mail, String password, String name){
+        staticACC.email = mail;
+        staticACC.name = name;
+        staticACC.password = password;
+    }
 }

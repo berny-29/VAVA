@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.net.URL?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="480.0" prefWidth="640.0" styleClass="anchor" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="src.Controllers.LoginController">
+    <stylesheets>
+        <URL value="@../../application.css" />
+    </stylesheets>
+    <children>
+        <Text fx:id="title" fill="#176285" layoutX="367.0" layoutY="178.0" strokeType="OUTSIDE" strokeWidth="0.0" text="%label.login" textAlignment="CENTER" wrappingWidth="198.5">
+            <font>
+                <Font size="25.0" />
+            </font>
+        </Text>
+        <TextField fx:id="email" layoutX="387.0" layoutY="207.0" prefHeight="25.0" prefWidth="160.0" promptText="%textField.userName" styleClass="text-field" />
+        <PasswordField fx:id="password" layoutX="388.0" layoutY="245.0" prefHeight="25.0" prefWidth="160.0" promptText="%textField.password" />
+        <Button fx:id="loginButton" layoutX="388.0" layoutY="311.0" mnemonicParsing="false" onAction="#login" prefHeight="26.0" prefWidth="160.0" style="-fx-background-color: #176285#176285; -fx-background-radius: 5;" text="%button.login" textFill="WHITE" />
+        <Label fx:id="forgotPass" layoutX="375.0" layoutY="276.0" onMouseClicked="#forgotenPassword" prefHeight="17.0" prefWidth="189.0" style="-fx-alignment: center;" text="%label.forgotPass" textFill="#176285" />
+        <Label layoutX="438.0" layoutY="345.0" prefHeight="17.0" prefWidth="60.0" style="-fx-alignment: center;" text="%labe.or" textFill="#176285" />
+        <Button fx:id="RegisterButton" layoutX="388.0" layoutY="370.0" mnemonicParsing="false" onAction="#register" prefHeight="26.0" prefWidth="160.0" style="-fx-background-color: #00e6e6#00e6e6; -fx-background-radius: 5;" text="%button.register" textFill="WHITE" />
+        <ImageView fitHeight="140.0" fitWidth="320.0" layoutX="312.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../../Images/Logo.png" />
+            </image>
+        </ImageView>
+      <Label fx:id="languageSwitch" layoutX="566.0" layoutY="6.0" onMouseClicked="#changePageLang" text="SK  |  EN" />
+    </children>
+
+</AnchorPane>

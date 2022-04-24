@@ -23,6 +23,10 @@ public class Plan {
         this.tasks.add(task);
         return task;
     }
+
+    public void addTask(Task t) {
+        this.tasks.add(t);
+    }
     //Geters
     public OffsetDateTime getStart() {
         return start;
