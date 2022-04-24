@@ -10,7 +10,6 @@ import java.sql.SQLException;
 import java.net.*;
 import java.io.*;
 
-import static src.Controllers.ProfileController.staticACC;
 
 /**
  * @author: Spol XD, akt(Filo,Gajdos,Mark)
@@ -19,6 +18,7 @@ import static src.Controllers.ProfileController.staticACC;
 public class Account {
     private int id ;
     private String name, password, email;
+    public static Account staticACC;
 
     public static void loginLogger(String email, String password,String status) throws Exception {
 
@@ -85,6 +85,23 @@ public class Account {
         }else {
             return true;
         }
+    }
+
+    public static ResultSet getUserData(String email) throws  SQLException{
+        try {
+            Connection conn = Database.getInstance().getConnection();
+
+            String find = "SELECT firstname, lastname, age FROM accounts where email = ?";
+            PreparedStatement pf = conn.prepareStatement(find);
+
+            pf.setString(1, email);
+            ResultSet rowf = pf.executeQuery();
+            return rowf;
+        } catch(Exception e) {
+            return null;
+        }
+
+
     }
 
     public static int changePassword(String email, String password, String newPassword) throws SQLException {

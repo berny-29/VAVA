@@ -6,8 +6,12 @@ import javafx.scene.chart.PieChart;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
 import src.Model.Account;
+import src.Model.Database;
 
 import java.io.IOException;
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class ProfileController extends Controller{
@@ -44,6 +48,9 @@ public class ProfileController extends Controller{
 
     @FXML
     private TextArea myPlansArea;
+
+    @FXML
+    private TextArea daysTasks;
 
     @FXML
     private DatePicker pickDate;
@@ -107,10 +114,38 @@ public class ProfileController extends Controller{
     private Button showTasksButton;
 
 
-    public static Account staticACC = new Account();
+
 
     public void createTask(){
 
     }
+
+    private void addChild() {
+        String name = childNameTextField.getText();
+        Connection conn = Database.getInstance().getConnection();
+        String statement = "SELECT * FROM account where firstname=? AND lastname=?";
+
+        String[] names = name.split(" ");
+
+        PreparedStatement query = conn.prepareStatement(statement);
+        query.setString(1, names[0]);
+        query.setString(2, names[1]);
+
+        ResultSet row = query.executeQuery();
+
+        String[] data = {"", ""};
+        while (row.next()) {
+            data[0] = row.getString("firstname") + " " + row.getString("lastname");
+            data[1] = row.getString("age");
+        }
+
+        staticUser.
+
+
+
+
+    }
+
+
 }
 

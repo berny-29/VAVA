@@ -19,6 +19,16 @@ public class Task {
      * Or do you have better idea
      */
     //
+
+    public Task() {
+
+    }
+
+    public Task(String desc) {
+        this.desc = desc;
+    }
+
+
     public boolean isStat() {
         return stat;
     }

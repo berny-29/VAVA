@@ -11,12 +11,16 @@ import javafx.stage.Stage;
 import src.Model.Account;
 
 import java.io.IOException;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Locale;
 import java.util.Objects;
 import java.util.ResourceBundle;
 
+import src.Model.User;
+
 import javafx.event.ActionEvent;
+
 
 public class LoginController extends Controller {
     public Button changePwdBtn;
@@ -24,6 +28,7 @@ public class LoginController extends Controller {
     public Label labe1;
     public Label labe2;
     public Label labe3;
+
 
 
     @FXML
@@ -85,6 +90,8 @@ public class LoginController extends Controller {
             //logging
             Account.loginLogger(emailField,passwordField,"failure");
         }
+
+
 
     }
 
