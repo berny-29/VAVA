@@ -11,9 +11,9 @@ public final class Database {
 
     static
     {
-        String url = "jdbc:postgresql://localhost:5432/Vava";
-        String user = "postgres";
-        String pass = "Ivangg88";
+        String url = System.getenv("URL");
+        String user = System.getenv("USER");
+        String pass = System.getenv("PASS");
         try {
             Class.forName("org.postgresql.Driver");
             con = DriverManager.getConnection(url, user, pass);
