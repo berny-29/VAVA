@@ -111,7 +111,7 @@ public class Account {
         Connection conn = Database.getInstance().getConnection();
         StringBuilder str = new StringBuilder();
 
-        String sql = "select * from  logs where time  < cast(? as timestamp)";
+        String sql = "select * from  logs where time  > cast(? as timestamp)";
         PreparedStatement pi = conn.prepareStatement(sql);
         pi.setString(1, String.valueOf(timestamp));
 
