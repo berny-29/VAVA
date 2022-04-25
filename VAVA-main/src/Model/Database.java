@@ -15,7 +15,7 @@ public final class Database {
         String user = "postgres";
 
         String pass = System.getenv("PASS");
-        //String pass = "uuclespo2";
+        
 
         try {
             Class.forName("org.postgresql.Driver");
