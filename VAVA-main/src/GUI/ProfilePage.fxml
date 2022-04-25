@@ -153,9 +153,9 @@
                         </Label>
                         <TextField fx:id="newEmail" layoutX="220.0" layoutY="55.0" prefHeight="26.0" prefWidth="145.0" promptText="%textField.email" />
                         <TextArea fx:id="myInfoTextArea" editable="false" layoutX="10.0" layoutY="52.0" prefHeight="168.0" prefWidth="192.0" wrapText="true" />
-                        <PasswordField layoutX="220.0" layoutY="102.0" prefHeight="26.0" prefWidth="145.0" promptText="%passField.newPasswd" />
-                        <PasswordField layoutX="220.0" layoutY="148.0" prefHeight="26.0" prefWidth="145.0" promptText="%passField.retypePasswd" />
-                        <Button layoutX="221.0" layoutY="186.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="144.0" style="-fx-background-color: #176285#176285; -fx-background-radius: 5;" text="%button.updateInfo" />
+                        <PasswordField fx:id="newPassword" layoutX="220.0" layoutY="102.0" prefHeight="26.0" prefWidth="145.0" promptText="%passField.newPasswd" />
+                        <PasswordField fx:id="newRetypePassword" layoutX="220.0" layoutY="148.0" prefHeight="26.0" prefWidth="145.0" promptText="%passField.retypePasswd" />
+                        <Button fx:id="buttonUpdateInfo" layoutX="221.0" layoutY="186.0" mnemonicParsing="false" onMouseClicked="#updateUserInfo" prefHeight="30.0" prefWidth="144.0" style="-fx-background-color: #176285#176285; -fx-background-radius: 5;" text="%button.updateInfo" />
                         <Button fx:id="sendMessageButton" layoutX="249.0" layoutY="381.0" mnemonicParsing="false" prefHeight="30.0" prefWidth="156.0" style="-fx-background-color: #176285#176285; -fx-background-radius: 5;" text="%button.sendMessage" />
                         <TextArea fx:id="chatTextArea" editable="false" layoutX="9.0" layoutY="271.0" prefHeight="140.0" prefWidth="203.0" wrapText="true" />
                         <TextArea fx:id="messageTextArea" layoutX="248.0" layoutY="271.0" prefHeight="105.0" prefWidth="159.0" promptText="%textArea.message" wrapText="true" />

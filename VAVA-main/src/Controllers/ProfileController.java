@@ -117,10 +117,35 @@ public class ProfileController extends Controller{
     private Button showTasksButton;
 
     @FXML
+    private PasswordField newPassword;
+
+    @FXML
+    private PasswordField newRetypePassword;
+
+    @FXML
+    private Button updateInfo;
+
+    @FXML
     public void initialize() {
         myChildrenArea.setText("");
         selectChild1 = new ChoiceBox<String>();
 
+    }
+
+    @FXML
+    private void updateUserInfo() {
+        String email = newEmail.getText();
+        String newPass = newPassword.getText();
+        String retypeNewPass = newRetypePassword.getText();
+
+        try {
+            Account.changePassword(email, newPass, retypeNewPass);
+        } catch (Exception e) {
+            Alert data = new Alert(Alert.AlertType.CONFIRMATION);
+            data.setTitle("Incorrect data");
+            data.setContentText("The passwords dont match or incorrect email. Pls try again");
+            data.showAndWait();
+        }
     }
 
     public void createTask(){
