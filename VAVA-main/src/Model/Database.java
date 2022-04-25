@@ -14,11 +14,7 @@ public final class Database {
         String url = System.getenv("URL");
         String user = System.getenv("USER");
         String pass = System.getenv("PASS");
-
-        url = "jdbc:postgresql://localhost:5432/Vava";
-        user = "postgres";
-        pass = "1234";
-
+        
         try {
             Class.forName("org.postgresql.Driver");
             con = DriverManager.getConnection(url, user, pass);
