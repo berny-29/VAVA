@@ -86,6 +86,12 @@ public class LoginController extends Controller {
         if(Account.userLogin(emailField, passwordField,role).equals("admin")){
             Stage s = (Stage) loginButton.getScene().getWindow();
             loadPage(s,"AdminPage");
+            ResultSet data = User.getActiveUser().getUserData(emailField);
+            if ( data != null ) {
+                while ( data.next() ) {
+                    User.setActiveUser(data.getString("firstname") + " " + data.getString("lastname"), role);
+                }
+            }
             //loggingsa
             Account.loginLogger(emailField,passwordField,"succes");
         } if(Account.userLogin(emailField, passwordField,role).equals("false")){

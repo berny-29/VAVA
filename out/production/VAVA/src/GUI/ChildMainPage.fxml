@@ -10,7 +10,6 @@
 <?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.PasswordField?>
-<?import javafx.scene.control.ScrollPane?>
 <?import javafx.scene.control.Tab?>
 <?import javafx.scene.control.TabPane?>
 <?import javafx.scene.control.TextArea?>
@@ -20,7 +19,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane prefHeight="480.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="src.Controllers.ProfileController">
+<AnchorPane prefHeight="480.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/18" xmlns:fx="http://javafx.com/fxml/1" fx:controller="src.Controllers.ChildPageController">
   <stylesheets>
     <URL value="@../../application.css" />
   </stylesheets>
@@ -58,7 +57,7 @@
                            </font>
                         </Label>
                         <DatePicker fx:id="calendarDateTask" layoutX="267.0" layoutY="336.0" prefHeight="31.0" prefWidth="164.0" promptText="%datePicker.calendarTask" />
-                        <TextArea fx:id="daysTasks" editable="false" layoutX="9.0" layoutY="72.0" prefHeight="260.0" prefWidth="214.0" wrapText="true" />
+                        <TextArea fx:id="dasTaskstextArea" editable="false" layoutX="9.0" layoutY="72.0" prefHeight="260.0" prefWidth="214.0" wrapText="true" />
                         <TextArea fx:id="hoursTasksTextArea" editable="false" layoutX="236.0" layoutY="72.0" prefHeight="260.0" prefWidth="214.0" wrapText="true" />
                         <Label layoutX="9.0" layoutY="49.0" prefHeight="18.0" prefWidth="169.0" text="%label.daysTasks" />
                         <Label layoutX="236.0" layoutY="49.0" prefHeight="18.0" prefWidth="169.0" text="%label.taskInDay" />
@@ -84,7 +83,7 @@
                         </Label>
                         <ChoiceBox fx:id="selectNewPlan" layoutX="9.0" layoutY="254.0" prefHeight="30.0" prefWidth="157.0" />
                         <DatePicker fx:id="pickDate" layoutX="176.0" layoutY="254.0" prefHeight="31.0" prefWidth="164.0" promptText="%datePicker.startTime" />
-                        <Button fx:id="createPlan" layoutX="348.0" layoutY="254.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="105.0" style="-fx-background-color: #176285#176285; -fx-background-radius: 5;" text="%button.createPlan" textFill="WHITE" />
+                        <Button fx:id="createPlan" layoutX="350.0" layoutY="254.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="105.0" style="-fx-background-color: #176285#176285; -fx-background-radius: 5;" text="%button.createPlan" textFill="WHITE" />
                         <Button fx:id="deletePlan" layoutX="193.0" layoutY="363.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="123.0" style="-fx-background-color: #176285#176285; -fx-background-radius: 5;" text="%button.deletePlan" textFill="WHITE" />
                         <ChoiceBox fx:id="selectDeletePlan" layoutX="9.0" layoutY="363.0" prefHeight="30.0" prefWidth="157.0" />
                         <Label layoutX="8.0" layoutY="313.0" prefHeight="39.0" prefWidth="268.0" text="%label.deletePlan">
@@ -96,45 +95,24 @@
                   </AnchorPane>
               </content>
             </Tab>
-            <Tab text="%tab.children">
+            <Tab text="%tab.parents">
               <content>
-                  <ScrollPane prefHeight="436.0" prefWidth="389.0" style="-fx-background-color: #c6cdd2;">
-                     <content>
-                      <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="600.0" prefWidth="470.0" style="-fx-background-color: #c6cdd2;">
-                           <children>
-                              <Label layoutX="9.0" layoutY="8.0" prefHeight="30.0" prefWidth="283.0" text="%label.myChildren">
-                                 <font>
-                                    <Font size="20.0" />
-                                 </font>
-                              </Label>
-                              <TextArea fx:id="myChildrenArea" editable="false" layoutX="16.0" layoutY="53.0" prefHeight="120.0" prefWidth="434.0" wrapText="true" />
-                              <Label layoutX="9.0" layoutY="430.0" prefHeight="30.0" prefWidth="242.0" text="%label.assignPlan">
-                                 <font>
-                                    <Font size="20.0" />
-                                 </font>
-                              </Label>
-                              <ChoiceBox fx:id="selectChild" layoutX="9.0" layoutY="481.0" prefHeight="32.0" prefWidth="176.0" />
-                              <ChoiceBox fx:id="selectChildPlan" layoutX="230.0" layoutY="481.0" prefHeight="32.0" prefWidth="176.0" />
-                              <DatePicker fx:id="pickChildDate" layoutX="9.0" layoutY="534.0" prefHeight="31.0" prefWidth="176.0" promptText="%datePicker.childStartTime" />
-                              <Button fx:id="assignChildPlan" layoutX="233.0" layoutY="536.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="173.0" style="-fx-background-color: #176285#176285; -fx-border-radius: 5;" text="%button.assignChildPlan" textFill="WHITE" />
-                              <Label layoutX="9.0" layoutY="327.0" prefHeight="30.0" prefWidth="283.0" text="%label.addChildren">
-                                 <font>
-                                    <Font size="20.0" />
-                                 </font>
-                              </Label>
-                              <Label layoutX="9.0" layoutY="185.0" prefHeight="30.0" prefWidth="283.0" text="%label.viewChild">
-                                 <font>
-                                    <Font size="20.0" />
-                                 </font>
-                              </Label>
-                              <TextField fx:id="childNameTextField" layoutX="9.0" layoutY="380.0" prefHeight="25.0" prefWidth="176.0" promptText="%textField.enterChildName" />
-                              <Button fx:id="addChildButton" layoutX="219.0" layoutY="379.0" mnemonicParsing="false" onMouseClicked="#addChild" prefHeight="27.0" prefWidth="159.0" style="-fx-background-color: #176285#176285; -fx-background-radius: 5;" text="%button.addChild" textFill="WHITE" />
-                              <ChoiceBox fx:id="selectChild1" layoutX="9.0" layoutY="232.0" prefHeight="32.0" prefWidth="176.0" />
-                              <Button fx:id="viewChildButton" layoutX="219.0" layoutY="235.0" mnemonicParsing="false" onMouseClicked="#go_to_login" prefHeight="28.0" prefWidth="159.0" style="-fx-background-color: #176285#176285; -fx-background-radius: 5;" text="%button.viewChild" textFill="WHITE" />
-                           </children>
-                        </AnchorPane>
-                     </content>
-                  </ScrollPane>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="437.0" prefWidth="470.0" style="-fx-background-color: #c6cdd2;">
+                     <children>
+                        <Label layoutX="9.0" layoutY="8.0" prefHeight="30.0" prefWidth="283.0" text="%label.myParents">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Label>
+                        <TextArea fx:id="myParentsArea" editable="false" layoutX="12.0" layoutY="53.0" prefHeight="120.0" prefWidth="434.0" wrapText="true" />
+                        <Label layoutX="9.0" layoutY="223.0" prefHeight="30.0" prefWidth="242.0" text="%label.assignedPlans">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Label>
+                        <TextArea fx:id="myTasksTextArea" editable="false" layoutX="12.0" layoutY="268.0" prefHeight="148.0" prefWidth="434.0" wrapText="true" />
+                     </children>
+                  </AnchorPane>
               </content>
             </Tab>
             <Tab text="%tab.profile">
@@ -165,7 +143,7 @@
             </Tab>
         </tabs>
       </TabPane>
-      <AnchorPane layoutX="458.0" layoutY="60.0" prefHeight="424.0" prefWidth="173.0" style="-fx-background-color: #aab4bb;">
+      <AnchorPane layoutX="457.0" layoutY="45.0" prefHeight="439.0" prefWidth="166.0" style="-fx-background-color: #aab4bb;">
          <children>
             <ImageView fitHeight="70.0" fitWidth="169.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true">
                <image>

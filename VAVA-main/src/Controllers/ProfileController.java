@@ -1,12 +1,12 @@
 package src.Controllers;
 
+import javafx.collections.FXCollections;
 import javafx.fxml.FXML;
 import javafx.scene.chart.BarChart;
 import javafx.scene.chart.PieChart;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
-import src.Model.Account;
-import src.Model.Database;
+import src.Model.*;
 
 import java.io.IOException;
 import java.sql.Connection;
@@ -15,6 +15,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class ProfileController extends Controller{
+
     @FXML
     private PieChart PieChart;
 
@@ -115,36 +116,53 @@ public class ProfileController extends Controller{
 
 
 
-
     public void createTask(){
 
     }
 
-    private void addChild() {
-        String name = childNameTextField.getText();
-        Connection conn = Database.getInstance().getConnection();
-        String statement = "SELECT * FROM account where firstname=? AND lastname=?";
+    private void addChild(){
+        try {
+            String name = childNameTextField.getText();
+            Connection conn = Database.getInstance().getConnection();
+            String statement = "SELECT * FROM account where firstname=? AND lastname=?";
 
-        String[] names = name.split(" ");
+            String[] names = name.split(" ");
 
-        PreparedStatement query = conn.prepareStatement(statement);
-        query.setString(1, names[0]);
-        query.setString(2, names[1]);
+            PreparedStatement query = conn.prepareStatement(statement);
+            query.setString(1, names[0]);
+            query.setString(2, names[1]);
 
-        ResultSet row = query.executeQuery();
+            ResultSet row = query.executeQuery();
 
-        String[] data = {"", ""};
-        while (row.next()) {
-            data[0] = row.getString("firstname") + " " + row.getString("lastname");
-            data[1] = row.getString("age");
+            String[] data = {"", ""};
+            while (row.next()) {
+                data[0] = row.getString("firstname") + " " + row.getString("lastname");
+                data[1] = row.getString("age");
+            }
+
+            if ( User.getActiveUser() != null && User.getActiveUser() instanceof Parent) {
+                User.getActiveUser().addChild(new Child(data[0]));
+            }
+
+            String childrenNames[] = new String[]{};
+            selectChild1 = new ChoiceBox<>(FXCollections.observableArrayList(childrenNames));
+
+     //       if ( !selectChild1.getItems().contains(name) ) {
+           //     selectChild1
+
+                StringBuilder sb = new StringBuilder(myChildrenArea.getText());
+                sb.append(name + '\n');
+                myChildrenArea.setText(sb.toString());
+      //      }
+
+        } catch (Exception e) {
+
         }
-
-        staticUser.
-
 
 
 
     }
+
 
 
 }

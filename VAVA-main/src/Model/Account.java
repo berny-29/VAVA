@@ -85,11 +85,11 @@ public class Account {
         }
     }
 
-    public static ResultSet getUserData(String email) throws  SQLException{
+    public static ResultSet getUserData(String email){
         try {
             Connection conn = Database.getInstance().getConnection();
 
-            String find = "SELECT firstname, lastname, age FROM accounts where email = ?";
+            String find = "SELECT * FROM accounts where email = ?";
             PreparedStatement pf = conn.prepareStatement(find);
 
             pf.setString(1, email);
