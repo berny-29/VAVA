@@ -231,9 +231,9 @@ public class ProfileController extends Controller{
             }
 
 /*            StringBuilder sb = new StringBuilder(myChildrenArea.getText());
-            sb.append(data[0] + " " + data[1]);
+            sb.append(data[0] + " " + data[1]);*/
 
-            myChildrenArea.setText(sb.toString());*/
+            myChildrenArea.setText(sb.toString());
 
             statement = "INSERT INTO children (id, parent_id) VALUES (?, ?) RETURNING *";
             qr = conn.prepareStatement(statement);
