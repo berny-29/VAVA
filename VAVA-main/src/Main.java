@@ -9,6 +9,8 @@ import src.Controllers.RegistrationController;
 import src.Model.ObservableResourceFactory;
 import src.Model.Plan;
 import src.Model.PopulateGlobals;
+import src.Model.UserPlan;
+import src.Model.PopulateGlobals;
 
 import java.awt.desktop.SystemEventListener;
 import java.sql.SQLException;
@@ -21,7 +23,9 @@ public class Main<aspect> extends Application {
     /**
      * Global array for every plan as GPlan
      */
-    public static ArrayList<Plan> GPlans = new ArrayList<>();
+    public static ArrayList<Plan> GPlans= new ArrayList<>();
+    public static ArrayList<UserPlan> UsersPlans= new ArrayList<>();
+
 
 
     @Override
@@ -39,9 +43,7 @@ public class Main<aspect> extends Application {
 
     public static void main(String[] args) throws SQLException {
 
-        PopulateGlobals.populateGplans();
-
-        PopulateGlobals.printPlans();
+        PopulateGlobals.populateGUserPlans();
 
         launch(args);
     }

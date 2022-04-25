@@ -2,6 +2,10 @@ package src.Model;
 
 import src.Main;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.time.LocalTime;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
@@ -50,6 +54,29 @@ public class PopulateGlobals {
                 System.out.println(tArr.get(j).getDesc());
             }
         }
+    }
+
+    public static void populateGUserPlans() throws SQLException {
+
+        int i;
+
+        Connection conn = Database.getInstance().getConnection();
+
+        String find = "SELECT COUNT(*) FROM accounts";
+        PreparedStatement pf = conn.prepareStatement(find);
+
+        ResultSet rowf = pf.executeQuery();
+        if (rowf.next()){
+            int count = rowf.getInt(1);
+            System.out.println(count);
+            for(i=1;i<=count;i++){
+                Plan plan = new Plan();
+                UserPlan uPlan = new UserPlan(i,plan);
+                Main.UsersPlans.add(uPlan);
+            }
+
+        }
+
     }
 
 }
