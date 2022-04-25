@@ -84,9 +84,10 @@ public class LoginController extends Controller {
         System.out.println(role);
 
         if(Account.userLogin(emailField, passwordField,role).equals("admin")){
+            
+            User.setActiveUser(User.getActiveUser().getUserName(emailField), role);
             Stage s = (Stage) loginButton.getScene().getWindow();
             loadPage(s,"AdminPage");
-            User.setActiveUser(User.getActiveUser().getUserName(emailField), role);
             //loggingsa
             Account.loginLogger(emailField,passwordField,"succes");
         } if(Account.userLogin(emailField, passwordField,role).equals("false")){
@@ -98,10 +99,13 @@ public class LoginController extends Controller {
             Account.loginLogger(emailField,passwordField,"failure");
         }
         if(Account.userLogin(emailField, passwordField,role).equals("user")){
+            
+            User.setActiveUser(User.getActiveUser().getUserName(emailField), role);
+            User activeUser = User.getActiveUser();
+            activeUser.setId(User.getActiveUser().getUserID(emailField));
+            System.out.println(activeUser.getId());
             Stage s = (Stage) loginButton.getScene().getWindow();
             loadPage(s,"ProfilePage");
-            User.setActiveUser(User.getActiveUser().getUserName(emailField), role);
-
             Account.loginLogger(emailField,passwordField,"succes");
         }
 

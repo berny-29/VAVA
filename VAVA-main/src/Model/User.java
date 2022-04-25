@@ -104,6 +104,33 @@ public class User {
         }
     }
 
+    public int getUserID(String email){
+        try {
+            Connection conn = Database.getInstance().getConnection();
+            String statement = "SELECT * FROM accounts where email = ?";
+
+            PreparedStatement query = conn.prepareStatement(statement);
+            query.setString(1, email);
+
+
+            ResultSet r = query.executeQuery();
+
+            int result = 0;
+
+            while ( r.next() ) {
+                result = r.getInt("id");
+            }
+
+
+
+            return result;
+        } catch (Exception e) {
+            return -1;
+        }
+    }
+
+
+
     public ArrayList<Child> getChildren() {return null;}
 
 }

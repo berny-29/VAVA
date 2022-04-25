@@ -129,6 +129,7 @@ public class ProfileController extends Controller{
     public void initialize() {
         myChildrenArea.setText("");
         selectChild1 = new ChoiceBox<String>();
+        myInfoTextArea.setText(User.getActiveUser().getName());
 
     }
 
