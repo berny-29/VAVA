@@ -6,6 +6,7 @@ import javafx.scene.chart.BarChart;
 import javafx.scene.chart.PieChart;
 import javafx.scene.control.*;
 import javafx.stage.Stage;
+import src.Main;
 import src.Model.*;
 
 import java.io.IOException;
@@ -13,6 +14,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 
 public class ProfileController extends Controller{
 
@@ -120,6 +122,19 @@ public class ProfileController extends Controller{
 
     }
 
+
+    @FXML
+    private void deleteUserPlan(){
+        String planName = (String) selectDeletePlan.getValue();
+
+        for ( int i = 0; i < Main.GPlans.size(); i++ ) {
+            if ( Main.GPlans.get(i).getName().equals(planName) ) {
+                Main.GPlans.remove(i);
+            }
+        }
+    }
+
+    @FXML
     private void addChild(){
         try {
             String name = childNameTextField.getText();
