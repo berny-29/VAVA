@@ -15,12 +15,14 @@ public class User {
     private String name;
     private int age, id;
     private Plan plan;
-    private static User activeUser;
+    private static User activeUser = new User();
     //TODO ---> Kalendar kalendar;
 
     //TODO konstruktor
     //Tu neviem aku dame inicializaciu ci singleton,
     //alebo norm?
+
+    public User(){}
 
     public static void setActiveUser(String name,  String role) {
         if ( !role.equals("admin") ) {

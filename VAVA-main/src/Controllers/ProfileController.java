@@ -116,7 +116,12 @@ public class ProfileController extends Controller{
     @FXML
     private Button showTasksButton;
 
+    @FXML
+    public void initialize() {
+        myChildrenArea.setText("");
+        selectChild1 = new ChoiceBox<String>();
 
+    }
 
     public void createTask(){
 
@@ -127,11 +132,14 @@ public class ProfileController extends Controller{
     private void deleteUserPlan(){
         String planName = (String) selectDeletePlan.getValue();
 
-        for ( int i = 0; i < Main.GPlans.size(); i++ ) {
-            if ( Main.GPlans.get(i).getName().equals(planName) ) {
-                Main.GPlans.remove(i);
+        if ( planName != null ) {
+            for ( int i = 0; i < Main.GPlans.size(); i++ ) {
+                if ( Main.GPlans.get(i).getName().equals(planName) ) {
+                    Main.GPlans.remove(i);
+                }
             }
         }
+
     }
 
     @FXML
@@ -160,15 +168,15 @@ public class ProfileController extends Controller{
             }
 
             String childrenNames[] = new String[]{};
-            selectChild1 = new ChoiceBox<>(FXCollections.observableArrayList(childrenNames));
+            //selectChild1 = new ChoiceBox<>(FXCollections.observableArrayList(childrenNames));
 
-     //       if ( !selectChild1.getItems().contains(name) ) {
-           //     selectChild1
+            if ( !selectChild1.getItems().contains(name) ) {
+       //         selectChild1.getItems().add(name);
 
                 StringBuilder sb = new StringBuilder(myChildrenArea.getText());
                 sb.append(name + '\n');
                 myChildrenArea.setText(sb.toString());
-      //      }
+            }
 
         } catch (Exception e) {
 
