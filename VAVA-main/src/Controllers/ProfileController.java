@@ -172,7 +172,7 @@ public class ProfileController extends Controller{
         try {
             String name = childNameTextField.getText();
             Connection conn = Database.getInstance().getConnection();
-            String statement = "SELECT * FROM account where firstname=? AND lastname=?";
+            String statement = "SELECT * FROM accounts where firstname=? AND lastname=?";
 
             String[] names = name.split(" ");
 
@@ -185,7 +185,7 @@ public class ProfileController extends Controller{
             String[] data = {"", ""};
             while (row.next()) {
                 data[0] = row.getString("firstname") + " " + row.getString("lastname");
-                data[1] = row.getString("age");
+                //data[1] = row.getString("age");
             }
 
             if ( User.getActiveUser() != null && User.getActiveUser() instanceof Parent) {
@@ -203,8 +203,12 @@ public class ProfileController extends Controller{
                 myChildrenArea.setText(sb.toString());
             }
 
-        } catch (Exception e) {
+            for ( int i = 0; i < User.getActiveUser().getChildren().size(); i++) {
+                System.out.println(User.getActiveUser().getChildren().get(i).getName());
+            }
 
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
         }
 
 

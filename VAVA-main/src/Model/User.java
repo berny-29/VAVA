@@ -5,6 +5,7 @@ import src.Model.Plan;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.util.ArrayList;
 
 /**
  * @author: Spol XD, akt(Filo,)
@@ -23,6 +24,10 @@ public class User {
     //alebo norm?
 
     public User(){}
+
+    public String getName(){
+        return this.name;
+    }
 
     public static void setActiveUser(String name,  String role) {
         if ( !role.equals("admin") ) {
@@ -91,4 +96,7 @@ public class User {
             return null;
         }
     }
+
+    public ArrayList<Child> getChildren() {return null;}
+
 }

@@ -9,6 +9,7 @@ public class Parent extends User{
         super(name);
     }
 
+    public ArrayList<Child> getChildren(){return this.children;}
 
     public void addChild(Child child) {
         this.children.add(child);

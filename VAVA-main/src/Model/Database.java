@@ -11,8 +11,9 @@ public final class Database {
 
     static
     {
-        String url = System.getenv("URL");
-        String user = System.getenv("USER");
+        String url = "jdbc:postgresql://localhost:5432/Vava";
+        String user = "postgres";
+
         String pass = System.getenv("PASS");
         
         try {
