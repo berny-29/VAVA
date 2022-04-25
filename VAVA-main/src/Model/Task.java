@@ -1,5 +1,6 @@
 package src.Model;
 
+import java.time.LocalTime;
 import java.time.OffsetDateTime;
 /**
  * @author: Spol XD, akt(Filo,)

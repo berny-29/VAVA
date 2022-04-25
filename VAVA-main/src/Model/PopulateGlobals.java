@@ -1,12 +1,12 @@
 package src.Model;
 
+import src.Main;
+
 import java.time.LocalTime;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
 
-import static src.Main.GPlans;
-
-public class populateGlobals {
+public class PopulateGlobals {
 
     public static void populateGplans(){
 
@@ -34,18 +34,18 @@ public class populateGlobals {
         plan3.setStart(OffsetDateTime.now());
         plan3.setEnd(OffsetDateTime.now());
 
-        GPlans.add(plan1);
-        GPlans.add(plan2);
-        GPlans.add(plan3);
+        Main.GPlans.add(plan1);
+        Main.GPlans.add(plan2);
+        Main.GPlans.add(plan3);
 
     }
 
     public static void printPlans(){
         int i,j = 0;
 
-        for (i=0;i<GPlans.size();i++){
-            System.out.println(GPlans.get(i).getName());
-            ArrayList<Task> tArr=GPlans.get(i).getTasks();
+        for (i=0;i<Main.GPlans.size();i++){
+            System.out.println(Main.GPlans.get(i).getName());
+            ArrayList<Task> tArr=Main.GPlans.get(i).getTasks();
             for (j = 0; j<tArr.size();j++) {
                 System.out.println(tArr.get(j).getDesc());
             }

@@ -1,5 +1,6 @@
 package src.Model;
 
+import java.time.LocalTime;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
 /**
@@ -10,8 +11,9 @@ public class Plan {
     private OffsetDateTime start;       //Ten start a end sme ako mysleli v tom plane?
     private OffsetDateTime end;
     private ArrayList<Task> tasks;
+    private String name;
 
-    Plan(){
+    public Plan(){
         this.tasks = new ArrayList<Task>();
     }
 
@@ -37,11 +39,17 @@ public class Plan {
     public OffsetDateTime getEnd() {
         return end;
     }
+    public String getName(){ return this.name;}
+    public ArrayList<Task> getTasks() { return this.tasks; }
     //Setters
     public void setStart(OffsetDateTime start) {
         this.start = start;
     }
     public void setEnd(OffsetDateTime end) {
         this.end = end;
+    }
+
+    public void setName(String s) {
+        this.name = s;
     }
 }
