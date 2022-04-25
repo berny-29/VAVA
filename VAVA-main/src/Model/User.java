@@ -78,20 +78,27 @@ public class User {
     public void addChild(Child child) {
     }
 
-    public ResultSet getUserData(String email){
-        try {;
+    public String getUserName(String email){
+        try {
             Connection conn = Database.getInstance().getConnection();
-            String statement = "SELECT * FROM account where email = ?";
+            String statement = "SELECT * FROM accounts where email = ?";
 
             PreparedStatement query = conn.prepareStatement(statement);
             query.setString(1, email);
 
 
-            ResultSet row = query.executeQuery();
-
-
             ResultSet r = query.executeQuery();
-            return r;
+
+            String result = "";
+
+            while ( r.next() ) {
+                result = r.getString("firstname") + " " + r.getString("lastname");
+          //      System.out.println(result);
+            }
+
+
+
+            return result;
         } catch (Exception e) {
             return null;
         }

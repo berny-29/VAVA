@@ -86,12 +86,7 @@ public class LoginController extends Controller {
         if(Account.userLogin(emailField, passwordField,role).equals("admin")){
             Stage s = (Stage) loginButton.getScene().getWindow();
             loadPage(s,"AdminPage");
-            ResultSet data = User.getActiveUser().getUserData(emailField);
-            if ( data != null ) {
-                while ( data.next() ) {
-                    User.setActiveUser(data.getString("firstname") + " " + data.getString("lastname"), role);
-                }
-            }
+            User.setActiveUser(User.getActiveUser().getUserName(emailField), role);
             //loggingsa
             Account.loginLogger(emailField,passwordField,"succes");
         } if(Account.userLogin(emailField, passwordField,role).equals("false")){
@@ -105,6 +100,8 @@ public class LoginController extends Controller {
         if(Account.userLogin(emailField, passwordField,role).equals("user")){
             Stage s = (Stage) loginButton.getScene().getWindow();
             loadPage(s,"ProfilePage");
+            User.setActiveUser(User.getActiveUser().getUserName(emailField), role);
+
             Account.loginLogger(emailField,passwordField,"succes");
         }
 

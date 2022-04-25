@@ -134,11 +134,27 @@ public class ProfileController extends Controller{
 
     @FXML
     private void updateUserInfo() {
-        String email = newEmail.getText();
+      //  String email = newEmail.getText();
         String newPass = newPassword.getText();
         String retypeNewPass = newRetypePassword.getText();
 
         try {
+            Connection conn = Database.getInstance().getConnection();
+            String statement = "SELECT * FROM accounts where firstname = ? AND lastname = ?";
+
+            String[] names = User.getActiveUser().getName().split(" ");
+            PreparedStatement query = conn.prepareStatement(statement);
+            query.setString(1, names[0]);
+            query.setString(2, names[1]);
+
+
+            ResultSet row = query.executeQuery();
+
+            String email = "";
+            while (row.next()) {
+                email = row.getString("email");
+            }
+
             Account.changePassword(email, newPass, retypeNewPass);
         } catch (Exception e) {
             Alert data = new Alert(Alert.AlertType.CONFIRMATION);
@@ -201,10 +217,6 @@ public class ProfileController extends Controller{
                 StringBuilder sb = new StringBuilder(myChildrenArea.getText());
                 sb.append(name + '\n');
                 myChildrenArea.setText(sb.toString());
-            }
-
-            for ( int i = 0; i < User.getActiveUser().getChildren().size(); i++) {
-                System.out.println(User.getActiveUser().getChildren().get(i).getName());
             }
 
         } catch (Exception e) {
