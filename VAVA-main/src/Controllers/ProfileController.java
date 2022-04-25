@@ -135,33 +135,26 @@ public class ProfileController extends Controller{
 
     @FXML
     private void updateUserInfo() {
-      //  String email = newEmail.getText();
-        String newPass = newPassword.getText();
-        String retypeNewPass = newRetypePassword.getText();
+     String email = newEmail.getText();
+        String nPassword = newPassword.getText();
+        String nPasswordA = newRetypePassword.getText();
 
-        try {
-            Connection conn = Database.getInstance().getConnection();
-            String statement = "SELECT * FROM accounts where firstname = ? AND lastname = ?";
-
-            String[] names = User.getActiveUser().getName().split(" ");
-            PreparedStatement query = conn.prepareStatement(statement);
-            query.setString(1, names[0]);
-            query.setString(2, names[1]);
-
-
-            ResultSet row = query.executeQuery();
-
-            String email = "";
-            while (row.next()) {
-                email = row.getString("email");
-            }
-
-            Account.changePassword(email, newPass, retypeNewPass);
-        } catch (Exception e) {
-            Alert data = new Alert(Alert.AlertType.CONFIRMATION);
-            data.setTitle("Incorrect data");
-            data.setContentText("The passwords dont match or incorrect email. Pls try again");
-            data.showAndWait();
+        if(Account.changePassword(email,nPassword, nPasswordA) == 2){
+            Alert existingEmail = new Alert(Alert.AlertType.INFORMATION);
+            existingEmail.setTitle("Passwords are different");
+            existingEmail.setContentText("Please enter same passwords");
+            existingEmail.showAndWait();
+        }
+        if(Account.changePassword(email,nPassword, nPasswordA) == 0){
+            Alert existingEmail = new Alert(Alert.AlertType.INFORMATION);
+            existingEmail.setTitle("No account with this email");
+            existingEmail.setContentText("Please enter existing email");
+            existingEmail.showAndWait();
+        }
+        if(Account.changePassword(email,nPassword, nPasswordA) == 1){
+            Alert existingEmail = new Alert(Alert.AlertType.INFORMATION);
+            existingEmail.setTitle("Password succesfully changed");
+            existingEmail.showAndWait();
         }
     }
 
