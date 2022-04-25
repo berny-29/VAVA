@@ -8,7 +8,7 @@ import java.time.OffsetDateTime;
 public class Task {
     private boolean stat = false, repetitiveTask = false;
     private String desc;
-    private OffsetDateTime start, end;
+    private LocalTime start, end;
 
     //TODO konstruktor spustitelny z funkcie planu addTask()
     /**
@@ -39,10 +39,10 @@ public class Task {
     public String getDesc() {
         return desc;
     }
-    public OffsetDateTime getEnd() {
+    public LocalTime getEnd() {
         return end;
     }
-    public OffsetDateTime getStart() {
+    public LocalTime getStart() {
         return start;
     }
     //Setters
@@ -52,7 +52,10 @@ public class Task {
     public void setStat(boolean stat) {
         this.stat = stat;
     }
-    public void setEnd(OffsetDateTime end) {
+    public void setStart(LocalTime start) {
+        this.start = start;
+    }
+    public void setEnd(LocalTime end) {
         this.end = end;
     }
 

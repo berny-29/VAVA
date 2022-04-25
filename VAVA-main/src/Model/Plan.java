@@ -18,8 +18,11 @@ public class Plan {
     //TODO este chyba geter a setter pre tasks, ale tam treba uvazovat ako budeme pristupovat k jednotlivim elementom?
     // funkica nato je array.get(), ale ako ich budeme identifikovat?
 
-    public Task addTask(){
+    public Task addTask(String desc, LocalTime start, LocalTime end){
         Task task = new Task();
+        task.setDesc(desc);
+        task.setStart(start);
+        task.setEnd(end);
         this.tasks.add(task);
         return task;
     }

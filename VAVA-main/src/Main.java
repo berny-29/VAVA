@@ -7,6 +7,8 @@ import javafx.scene.Scene;
 import javafx.stage.Stage;
 import src.Controllers.RegistrationController;
 import src.Model.ObservableResourceFactory;
+import src.Model.Plan;
+import src.Model.populateGlobals;
 
 import java.awt.desktop.SystemEventListener;
 import java.sql.SQLException;
@@ -14,6 +16,13 @@ import java.util.Locale;
 import java.util.ResourceBundle;
 
 public class Main<aspect> extends Application {
+
+    /**
+     * Global array for every plan as GPlan
+     */
+    public static ArrayList<Plan> GPlans= new ArrayList<>();
+
+
     @Override
     public void start(Stage primaryStage) throws Exception{
         Locale.setDefault(new Locale("en"));
@@ -28,6 +37,10 @@ public class Main<aspect> extends Application {
 
 
     public static void main(String[] args) throws SQLException {
+
+        populateGlobals.populateGplans();
+
+        populateGlobals.printPlans();
 
         launch(args);
     }
