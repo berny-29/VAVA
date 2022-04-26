@@ -18,7 +18,7 @@ public class Main<aspect> extends Application {
         ResourceBundle def_bundle = ResourceBundle.getBundle("src/Resources/LoginPage", Locale.getDefault());
 
         Parent root = FXMLLoader.load(getClass().getResource("/src/GUI/LoginPage.fxml"), def_bundle);
-        primaryStage.setTitle("Vava_Project");
+        primaryStage.setTitle("Work it out");
         primaryStage.setScene(new Scene(root, 640, 480));
         primaryStage.setResizable(false);
         primaryStage.show();

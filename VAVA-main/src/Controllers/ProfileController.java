@@ -17,58 +17,27 @@ import java.util.ArrayList;
 
 public class ProfileController extends Controller{
 
-    @FXML
-    private PieChart PieChart;
-
-    @FXML
-    private BarChart<?, ?> barChart;
-
-    @FXML
-    private Button languageSwitch;
-
-    @FXML
-    private Button logOutButton;
 
     @FXML
     private void changePageLang() throws SQLException, IOException {
-        Stage s = (Stage) PieChart.getScene().getWindow();
+        Stage s = (Stage) childNameTextField.getScene().getWindow();
         changeDefLoc();
         loadPage(s, "ProfilePage");
     }
     @FXML
     private void go_to_login() throws IOException {
-        Stage s = (Stage) PieChart.getScene().getWindow();
+        Stage s = (Stage) childNameTextField.getScene().getWindow();
         loadPage(s,"LoginPage");
     }
 
 
     @FXML
-    private Button createPlan;
-
-    @FXML
-    private Button deletePlan;
-
-    @FXML
     private TextArea myPlansArea;
 
-    @FXML
-    private TextArea daysTasks;
-
-    @FXML
-    private DatePicker pickDate;
 
     @FXML
     private ChoiceBox<?> selectDeletePlan;
 
-    @FXML
-    private ChoiceBox<?> selectNewPlan;
-
-
-    @FXML
-    private Button addChildButton;
-
-    @FXML
-    private Button assignChildPlan;
 
     @FXML
     private TextField childNameTextField;
@@ -77,31 +46,8 @@ public class ProfileController extends Controller{
     private TextArea myChildrenArea;
 
     @FXML
-    private DatePicker pickChildDate;
-
-    @FXML
-    private ChoiceBox<?> selectChild;
-
-    @FXML
     private ChoiceBox<String> selectChild1;
 
-    @FXML
-    private ChoiceBox<?> selectChildPlan;
-
-    @FXML
-    private Button viewChildButton;
-
-    @FXML
-    private DatePicker calendarDateTask;
-
-    @FXML
-    private TextArea chatTextArea;
-
-    @FXML
-    private TextArea hoursTasksTextArea;
-
-    @FXML
-    private TextArea messageTextArea;
 
     @FXML
     private TextArea myInfoTextArea;
@@ -110,19 +56,11 @@ public class ProfileController extends Controller{
     private TextField newEmail;
 
     @FXML
-    private Button sendMessageButton;
-
-    @FXML
-    private Button showTasksButton;
-
-    @FXML
     private PasswordField newPassword;
 
     @FXML
     private PasswordField newRetypePassword;
 
-    @FXML
-    private Button updateInfo;
 
     @FXML
     private  TextField taskNameTextField;
@@ -165,7 +103,7 @@ public class ProfileController extends Controller{
     }
 
     @FXML
-    public void initialize() {
+    private void initialize() {
         myChildrenArea.setText("");
 
         ObservableList<String> hours = FXCollections.observableArrayList(comboHours());
@@ -180,6 +118,7 @@ public class ProfileController extends Controller{
         User activeUser = User.getActiveUser();
         myChildrenArea.setText("");
         myPlansArea.setText(Task.getTasks(activeUser.getId()).toString());
+
 
 
         myInfoTextArea.setText(User.getActiveUser().getName());
@@ -199,7 +138,7 @@ public class ProfileController extends Controller{
     }
 
     @FXML
-    public void addNewTask() throws SQLException {
+    private void addNewTask() throws SQLException {
         createNewTask();
     }
 
@@ -207,16 +146,17 @@ public class ProfileController extends Controller{
     private void createNewTask() throws SQLException {
 
         User activeUser = User.getActiveUser();
-        int child_id = User.getActiveUser().findChildId(selectChild1.getValue().toString());
+
         String desc = taskNameTextField.getText();
         boolean rep = repeatCheckBox.isSelected();
         String startH = startHourBox.getValue().toString();
         String startM = startMinBox.getValue().toString();
         String endH = endHourBox.getValue().toString();
         String endM = endHourBox.getValue().toString();
-        if(selectChild1.getValue().isEmpty()){
+        if(selectChild1.getSelectionModel().isEmpty()){
             Task.createTask(rep,desc, LocalTime.of(Integer.parseInt(startH),Integer.parseInt(startM)),LocalTime.of(Integer.parseInt(endH),Integer.parseInt(endM)),activeUser.getId(),activeUser.getId());
         }else {
+            int child_id = User.getActiveUser().findChildId(selectChild1.getValue().toString());
             Task.createTask(rep,desc, LocalTime.of(Integer.parseInt(startH),Integer.parseInt(startM)),LocalTime.of(Integer.parseInt(endH),Integer.parseInt(endM)),child_id,child_id);
         }
 
@@ -250,7 +190,17 @@ public class ProfileController extends Controller{
         }
     }
 
-    public void createTask(){
+    @FXML
+    private void deleteUserPlan(){
+        String planName = (String) selectDeletePlan.getValue();
+
+        if ( planName != null ) {
+            for ( int i = 0; i < Main.GPlans.size(); i++ ) {
+                if ( Main.GPlans.get(i).getName().equals(planName) ) {
+                    Main.GPlans.remove(i);
+                }
+            }
+        }
 
     }
 

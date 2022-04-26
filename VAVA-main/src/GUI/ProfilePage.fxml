@@ -29,46 +29,6 @@
   <children>
       <TabPane prefHeight="480.0" prefWidth="640.0" style="-fx-background-color: #c6cdd2;" tabClosingPolicy="UNAVAILABLE">
         <tabs>
-          <Tab text="%tab.statistics">
-            <content>
-              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="447.0" prefWidth="640.0">
-                     <children>
-                        <Label layoutX="9.0" layoutY="15.0" prefHeight="30.0" prefWidth="192.0" style="-fx-alignment: center-left;" text="%label.myStatistics">
-                           <font>
-                              <Font size="20.0" />
-                           </font>
-                        </Label>
-                        <PieChart fx:id="PieChart" layoutX="10.0" layoutY="164.0" prefHeight="220.0" prefWidth="210.0" />
-                        <BarChart fx:id="barChart" layoutX="226.0" layoutY="147.0" prefHeight="240.0" prefWidth="230.0">
-                          <xAxis>
-                            <CategoryAxis side="BOTTOM" />
-                          </xAxis>
-                          <yAxis>
-                            <NumberAxis side="LEFT" />
-                          </yAxis>
-                        </BarChart>
-                     </children></AnchorPane>
-            </content>
-          </Tab>
-          <Tab text="%tab.calendar">
-            <content>
-              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
-                     <children>
-                        <Label layoutX="9.0" layoutY="15.0" prefHeight="30.0" prefWidth="206.0" style="-fx-alignment: center-left;" text="%label.myCalendar">
-                           <font>
-                              <Font size="20.0" />
-                           </font>
-                        </Label>
-                        <DatePicker fx:id="calendarDateTask" layoutX="267.0" layoutY="336.0" prefHeight="31.0" prefWidth="164.0" promptText="%datePicker.calendarTask" />
-                        <TextArea fx:id="daysTasks" editable="false" layoutX="9.0" layoutY="72.0" prefHeight="260.0" prefWidth="214.0" wrapText="true" />
-                        <TextArea fx:id="hoursTasksTextArea" editable="false" layoutX="236.0" layoutY="72.0" prefHeight="260.0" prefWidth="214.0" wrapText="true" />
-                        <Label layoutX="9.0" layoutY="49.0" prefHeight="18.0" prefWidth="169.0" text="%label.daysTasks" />
-                        <Label layoutX="236.0" layoutY="49.0" prefHeight="18.0" prefWidth="169.0" text="%label.taskInDay" />
-                        <Button fx:id="showTasksButton" layoutX="266.0" layoutY="379.0" mnemonicParsing="false" onMouseClicked="#changePageLang" prefHeight="28.0" prefWidth="161.0" style="-fx-background-color: #176285#176285; -fx-background-radius: 5;" text="%button.showTasks" textFill="WHITE" />
-                     </children>
-                  </AnchorPane>
-            </content>
-          </Tab>
             <Tab text="%tab.plans">
               <content>
                   <ScrollPane prefHeight="592.0" prefWidth="640.0">
@@ -140,7 +100,7 @@
                               <TextField fx:id="childNameTextField" layoutX="9.0" layoutY="380.0" prefHeight="25.0" prefWidth="176.0" promptText="%textField.enterChildName" />
                               <Button fx:id="addChildButton" layoutX="219.0" layoutY="379.0" mnemonicParsing="false" onMouseClicked="#addChild" prefHeight="27.0" prefWidth="159.0" style="-fx-background-color: #176285#176285; -fx-background-radius: 5;" text="%button.addChild" textFill="WHITE" />
                               <ChoiceBox fx:id="selectChild1" layoutX="9.0" layoutY="232.0" prefHeight="32.0" prefWidth="176.0" />
-                              <Button fx:id="viewChildButton" layoutX="219.0" layoutY="235.0" mnemonicParsing="false" onMouseClicked="#go_to_login" prefHeight="28.0" prefWidth="159.0" style="-fx-background-color: #176285#176285; -fx-background-radius: 5;" text="%button.viewChild" textFill="WHITE" />
+
                            </children>
                         </AnchorPane>
                      </content>
