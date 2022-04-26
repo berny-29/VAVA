@@ -157,6 +157,10 @@ public class Account {
         return 0;
     }
 
+    /**
+     * getIp() from https://stackoverflow.com/questions/2939218/getting-the-external-ip-address-in-java by bakkal
+     *
+     */
     public static String getIp() throws Exception
     {
         URL whatismyip = new URL("http://checkip.amazonaws.com/%22");
