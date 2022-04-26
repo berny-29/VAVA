@@ -165,7 +165,7 @@
             </Tab>
         </tabs>
       </TabPane>
-      <AnchorPane layoutX="458.0" layoutY="60.0" prefHeight="424.0" prefWidth="173.0" style="-fx-background-color: #aab4bb;">
+      <AnchorPane layoutX="458.0" layoutY="59.0" prefHeight="425.0" prefWidth="173.0" style="-fx-background-color: #aab4bb;">
          <children>
             <ImageView fitHeight="70.0" fitWidth="169.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true">
                <image>
