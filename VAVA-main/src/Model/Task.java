@@ -108,14 +108,14 @@ public class Task {
 
             StringBuilder str = new StringBuilder();
 
-            str.append("Task\t\tStart\tEnd\n");
+            str.append("Task\t\tStart\t\tEnd\n");
 
             while ( r.next() ) {
                 str.append(r.getString("description"));
                 str.append("\t\t");
-                str.append(r.getTimestamp("start_date").toString());
+                str.append(r.getTimestamp("start_date").toString().split(" ")[1]);
                 str.append("\t");
-                str.append(r.getTimestamp("end_date"));
+                str.append(r.getTimestamp("end_date").toString().split(" ")[1]);
                 str.append("\n");
                 System.out.println(r.getString("description"));
             }
