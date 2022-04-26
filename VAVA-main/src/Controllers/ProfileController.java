@@ -11,9 +11,6 @@ import src.Main;
 import src.Model.*;
 
 import java.io.IOException;
-import java.sql.Connection;
-import java.sql.PreparedStatement;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
@@ -133,22 +130,52 @@ public class ProfileController extends Controller{
     private CheckBox repeatCheckBox;
 
     @FXML
-    private ComboBox<?> startHourBox;
+    private ComboBox<String> startHourBox;
 
     @FXML
-    private ComboBox<?> startMinBox;
+    private ComboBox<String> startMinBox;
 
     @FXML
-    private ComboBox<?> endHourBox;
+    private ComboBox<String> endHourBox;
 
     @FXML
-    private ComboBox<?> endMinBox;
+    private ComboBox<String> endMinBox;
+
+    public ArrayList<String> comboHours(){
+
+        ArrayList<String> fillHours= new ArrayList<>();
+
+        int i = 0;
+        for(i=0;i<24;i++){
+            fillHours.add(String.valueOf(i));
+        }
+        return fillHours;
+    }
+
+    public ArrayList<String> comboMinutes(){
+
+        ArrayList<String> fillMinutes= new ArrayList<>();
+
+        int i = 0;
+        for(i=0;i<60;i++){
+            fillMinutes.add(String.valueOf(i));
+        }
+        return fillMinutes;
+    }
 
 
     @FXML
     public void initialize() {
         myChildrenArea.setText("");
 
+        ObservableList<String> hours = FXCollections.observableArrayList(comboHours());
+        startHourBox.setItems(hours);
+        endHourBox.setItems(hours);
+
+        ObservableList<String> minutes = FXCollections.observableArrayList(comboMinutes());
+        startMinBox.setItems(minutes);
+        endMinBox.setItems(minutes);
+        
 
         User activeUser = User.getActiveUser();
         myChildrenArea.setText("");
