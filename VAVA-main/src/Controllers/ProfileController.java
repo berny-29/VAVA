@@ -128,16 +128,21 @@ public class ProfileController extends Controller{
     @FXML
     public void initialize() {
         myChildrenArea.setText("");
-        selectChild1 = new ChoiceBox<String>();
+
+
 
         myInfoTextArea.setText(User.getActiveUser().getName());
         StringBuilder sb = new StringBuilder();
 
         for(Child child: User.getActiveUser().getChilds()){
-            System.out.println("jj");
+
             sb.append(child.getName());
             sb.append("\n");
+
         }
+        ObservableList<String> options =
+                FXCollections.observableArrayList(User.getActiveUser().getChildsName());
+        selectChild1.setItems(options);
         myChildrenArea.setText(sb.toString());
 
     }
