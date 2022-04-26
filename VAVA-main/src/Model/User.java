@@ -62,27 +62,30 @@ public class User {
         pf.setInt(1, id);
         StringBuilder sb = new StringBuilder();
         ResultSet rowf = pf.executeQuery();
-        while (rowf.next()) {
-            sb.append(rowf.getInt(1));
-            sb.append(",");
-        }
+        if (rowf.next()) {
+             do {
+                sb.append(rowf.getInt(1));
+                sb.append(",");
+            }while (rowf.next());
 
-        String[] array = sb.toString().split(",");
+            String[] array = sb.toString().split(",");
 
-        for (String s : array) {
-            String sql1 = "select * from accounts where id = ?";
-            pf = conn.prepareStatement(sql1);
-            int i = Integer.parseInt(s);
-            pf.setInt(1, i);
-            ResultSet rowf1 = pf.executeQuery();
-            while (rowf1.next()) {
+            for (String s : array) {
+                String sql1 = "select * from accounts where id = ?";
+                pf = conn.prepareStatement(sql1);
+                int i = Integer.parseInt(s);
+                pf.setInt(1, i);
+                ResultSet rowf1 = pf.executeQuery();
+                while (rowf1.next()) {
 
-                Child child = new Child(rowf1.getString(2));
-                childs.add(child);
+                    Child child = new Child(rowf1.getString(2));
+                    childs.add(child);
+                }
+
             }
 
-        }
 
+        }
         return childs;
     }
 
@@ -174,6 +177,11 @@ public class User {
 
 
 
-    public ArrayList<Child> getChildren() {return null;}
+    public ArrayList<String> getChildsName(){
+        for(Child c: childs){
+            names.add(c.getName());
+        }
+        return names;
+    }
 
 }
