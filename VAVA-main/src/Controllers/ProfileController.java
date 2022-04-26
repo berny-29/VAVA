@@ -126,6 +126,25 @@ public class ProfileController extends Controller{
     private Button updateInfo;
 
     @FXML
+    private  TextField taskNameTextField;
+
+    @FXML
+    private CheckBox repeatCheckBox;
+
+    @FXML
+    private ComboBox<?> startHourBox;
+
+    @FXML
+    private ComboBox<?> startMinBox;
+
+    @FXML
+    private ComboBox<?> endHourBox;
+
+    @FXML
+    private ComboBox<?> endMinBox;
+
+
+    @FXML
     public void initialize() {
         myChildrenArea.setText("");
         selectChild1 = new ChoiceBox<String>();
