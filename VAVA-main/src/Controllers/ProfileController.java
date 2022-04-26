@@ -254,21 +254,6 @@ public class ProfileController extends Controller{
 
     }
 
-
-    @FXML
-    private void deleteUserPlan(){
-        String planName = (String) selectDeletePlan.getValue();
-
-        if ( planName != null ) {
-            for ( int i = 0; i < Main.GPlans.size(); i++ ) {
-                if ( Main.GPlans.get(i).getName().equals(planName) ) {
-                    Main.GPlans.remove(i);
-                }
-            }
-        }
-
-    }
-
     @FXML
     private void addChild() throws SQLException {
         String name = childNameTextField.getText();
