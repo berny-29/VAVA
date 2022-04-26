@@ -104,6 +104,7 @@ public class LoginController extends Controller {
             User activeUser = User.getActiveUser();
             activeUser.setId(User.getActiveUser().getUserID(emailField));
             System.out.println(activeUser.getId());
+            activeUser.getChilds(emailField);
             Stage s = (Stage) loginButton.getScene().getWindow();
             loadPage(s,"ProfilePage");
             Account.loginLogger(emailField,passwordField,"succes");
