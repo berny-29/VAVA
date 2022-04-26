@@ -4,23 +4,15 @@ import java.sql.*;
 import java.time.LocalTime;
 import java.time.OffsetDateTime;
 /**
- * @author: Spol XD, akt(Filo,)
- * describtion: ponechavam vasej predstavivosti
+ * @author: 
+ * describtion: 
  */
 public class Task {
     private boolean stat = false, repetitiveTask = false;
     private String desc;
     private LocalTime start, end;
 
-    //TODO konstruktor spustitelny z funkcie planu addTask()
-    /**
-     * repetitiveTask doesnt need setter beacuse
-     *it is set in constructor, at least that is idea
-     * Same with a start, it shoud be inicializated in constructor
-     *
-     * Or do you have better idea
-     */
-    //
+    
 
     public Task() {
 
