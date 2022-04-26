@@ -176,7 +176,6 @@ public class User {
 
             while ( r.next() ) {
                 result = r.getString("firstname") + " " + r.getString("lastname");
-          //      System.out.println(result);
             }
 
 

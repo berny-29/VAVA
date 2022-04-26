@@ -81,7 +81,6 @@ public class LoginController extends Controller {
         if(emailField.equals("admin@admin.com")){
             role = "admin";
         }
-        System.out.println(role);
 
         if(Account.userLogin(emailField, passwordField,role).equals("admin")){
             
@@ -103,7 +102,6 @@ public class LoginController extends Controller {
             User.setActiveUser(User.getActiveUser().getUserName(emailField), role);
             User activeUser = User.getActiveUser();
             activeUser.setId(User.getActiveUser().getUserID(emailField));
-            System.out.println(activeUser.getId());
             activeUser.getChilds(emailField);
             Stage s = (Stage) loginButton.getScene().getWindow();
             loadPage(s,"ProfilePage");

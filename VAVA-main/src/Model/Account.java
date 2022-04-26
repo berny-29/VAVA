@@ -32,7 +32,6 @@ public class Account {
 
         pi.executeUpdate();
 
-
     }
 
 
@@ -57,10 +56,6 @@ public class Account {
             pi.setString(4,email);
             pi.setString(5,sex);
             pi.setString(6,date);
-
-
-            int rowi = pi.executeUpdate();
-                System.out.println(rowi);
 
         }else {
             return false;

@@ -80,7 +80,6 @@ public class Task {
 
 
         int rowi = pi.executeUpdate();
-        System.out.println(rowi);
 
     }
 
@@ -109,7 +108,6 @@ public class Task {
                 str.append("\t");
                 str.append(r.getTimestamp("end_date").toString().split(" ")[1]);
                 str.append("\n");
-                System.out.println(r.getString("description"));
             }
 
             return str;
