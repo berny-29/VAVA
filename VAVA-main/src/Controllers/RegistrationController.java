@@ -131,16 +131,5 @@ public class RegistrationController extends Controller {
         birthDate.setPromptText(def_bundle.getString("birthDate"));
     }
 
-    //testovacia funkcia
-    @FXML
-    public void binding( ObservableResourceFactory resourceFactory) throws SQLException{
-        this.
-        title.textProperty().bind(resourceFactory.getStringBinding("registration"));
-        password.textProperty().bind(resourceFactory.getStringBinding("password"));
-        firstName.textProperty().bind(resourceFactory.getStringBinding("firstName"));
-        male.textProperty().bind(resourceFactory.getStringBinding("mSex"));
-        female.textProperty().bind(resourceFactory.getStringBinding("fSex"));
-        registerButton.textProperty().bind(resourceFactory.getStringBinding("createAccount"));
-        birthDate.promptTextProperty().bind(resourceFactory.getStringBinding("birthDate"));
-    }
+   
 }
