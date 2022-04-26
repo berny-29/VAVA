@@ -5,6 +5,7 @@ import src.Model.Plan;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.util.ArrayList;
 
 /**
@@ -17,6 +18,7 @@ public class User {
     private int age, id;
     private Plan plan;
     private static User activeUser = new User();
+    private ArrayList<Child> childs = new ArrayList<>();
     //TODO ---> Kalendar kalendar;
 
     //TODO konstruktor
@@ -42,11 +44,52 @@ public class User {
     }
 
 
+
+
     public User(String name) {
         this.name = name;
     }
 
-    //TOTO on login alebo register vytvorit noveho usera typu parent, potom parent.addChild()
+    public ArrayList<Child> getChilds(String email) throws SQLException {
+
+        int id = User.getActiveUser().getUserID(email);
+
+
+        Connection conn = Database.getInstance().getConnection();
+
+        String sql = "select c.id from children c join accounts a on c.parent_id = a.id where a.id = ?";
+        PreparedStatement pf = conn.prepareStatement(sql);
+        pf.setInt(1, id);
+        StringBuilder sb = new StringBuilder();
+        ResultSet rowf = pf.executeQuery();
+        while (rowf.next()) {
+            sb.append(rowf.getInt(1));
+            sb.append(",");
+        }
+
+        String[] array = sb.toString().split(",");
+
+        for (String s : array) {
+            String sql1 = "select * from accounts where id = ?";
+            pf = conn.prepareStatement(sql1);
+            int i = Integer.parseInt(s);
+            pf.setInt(1, i);
+            ResultSet rowf1 = pf.executeQuery();
+            while (rowf1.next()) {
+
+                Child child = new Child(rowf1.getString(2));
+                childs.add(child);
+            }
+
+        }
+
+        return childs;
+    }
+
+    public ArrayList<Child> getChilds() {
+        return childs;
+    }
+//TOTO on login alebo register vytvorit noveho usera typu parent, potom parent.addChild()
     //public void setStaticUser(User user) {this.user = user;    }
 
   //  public User getStaticUser() {      return this.user;   }

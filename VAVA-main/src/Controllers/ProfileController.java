@@ -129,13 +129,22 @@ public class ProfileController extends Controller{
     public void initialize() {
         myChildrenArea.setText("");
         selectChild1 = new ChoiceBox<String>();
+
         myInfoTextArea.setText(User.getActiveUser().getName());
+        StringBuilder sb = new StringBuilder();
+
+        for(Child child: User.getActiveUser().getChilds()){
+            System.out.println("jj");
+            sb.append(child.getName());
+            sb.append("\n");
+        }
+        myChildrenArea.setText(sb.toString());
 
     }
 
     @FXML
-    private void updateUserInfo() {
-     String email = newEmail.getText();
+    private void updateUserInfo() throws SQLException {
+        String email = newEmail.getText();
         String nPassword = newPassword.getText();
         String nPasswordA = newRetypePassword.getText();
         try {
@@ -196,55 +205,25 @@ public class ProfileController extends Controller{
             ResultSet row = query.executeQuery();
 
             String[] data = {"", ""};
-            int childID = -1;
             while (row.next()) {
                 data[0] = row.getString("firstname") + " " + row.getString("lastname");
-                childID = row.getInt("id");
+                //data[1] = row.getString("age");
             }
 
-            //id rodica
-            statement = "SELECT id FROM accounts where firstname=? AND lastname=?";
-            String[] parentName = User.getActiveUser().getName().split(" ");
-            PreparedStatement q = conn.prepareStatement(statement);
-            q.setString(1, parentName[0]);
-            q.setString(2, parentName[1]);
-            row = q.executeQuery();
-            int parentID = -1;
-
-            while ( row.next() ) {
-                parentID = row.getInt("id");
+            if ( User.getActiveUser() != null && User.getActiveUser() instanceof Parent) {
+                User.getActiveUser().addChild(new Child(data[0]));
             }
 
-            statement = "select accounts.firstname, accounts.lastname from accounts as accounts JOIN children on children.id = accounts.id WHERE children.parent_id = ?";
-            PreparedStatement qr = conn.prepareStatement(statement);
-            qr.setInt(1, parentID);
-            row = qr.executeQuery();
-
-            StringBuilder sb = new StringBuilder("");
-
-            while ( row.next() ) {
-                sb.append(row.getString("firstname") + " " + row.getString("lastname") + '\n');
-            }
-
-/*            StringBuilder sb = new StringBuilder(myChildrenArea.getText());
-            sb.append(data[0] + " " + data[1]);*/
-
-
-
-            statement = "INSERT INTO children (id, parent_id) VALUES (?, ?) RETURNING *";
-            qr = conn.prepareStatement(statement);
-            qr.setInt(1, childID);
-            qr.setInt(2, parentID);
-            row = qr.executeQuery();
-
-            sb.append(data[0] + " " + data[1]);
-            myChildrenArea.setText(sb.toString());
-
-
-         //   String childrenNames[] = new String[]{};
+            String childrenNames[] = new String[]{};
             //selectChild1 = new ChoiceBox<>(FXCollections.observableArrayList(childrenNames));
 
+            if ( !selectChild1.getItems().contains(name) ) {
+       //         selectChild1.getItems().add(name);
 
+                StringBuilder sb = new StringBuilder(myChildrenArea.getText());
+                sb.append(name + '\n');
+                myChildrenArea.setText(sb.toString());
+            }
 
         } catch (Exception e) {
             System.out.println(e.getMessage());
