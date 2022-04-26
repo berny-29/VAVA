@@ -19,6 +19,7 @@ public class User {
     private Plan plan;
     private static User activeUser = new User();
     private ArrayList<Child> childs = new ArrayList<>();
+    private ArrayList<String> names = new ArrayList<>();
     //TODO ---> Kalendar kalendar;
 
     //TODO konstruktor
