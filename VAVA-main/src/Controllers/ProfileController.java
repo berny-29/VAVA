@@ -138,23 +138,26 @@ public class ProfileController extends Controller{
      String email = newEmail.getText();
         String nPassword = newPassword.getText();
         String nPasswordA = newRetypePassword.getText();
-
-        if(Account.changePassword(email,nPassword, nPasswordA) == 2){
-            Alert existingEmail = new Alert(Alert.AlertType.INFORMATION);
-            existingEmail.setTitle("Passwords are different");
-            existingEmail.setContentText("Please enter same passwords");
-            existingEmail.showAndWait();
-        }
-        if(Account.changePassword(email,nPassword, nPasswordA) == 0){
-            Alert existingEmail = new Alert(Alert.AlertType.INFORMATION);
-            existingEmail.setTitle("No account with this email");
-            existingEmail.setContentText("Please enter existing email");
-            existingEmail.showAndWait();
-        }
-        if(Account.changePassword(email,nPassword, nPasswordA) == 1){
-            Alert existingEmail = new Alert(Alert.AlertType.INFORMATION);
-            existingEmail.setTitle("Password succesfully changed");
-            existingEmail.showAndWait();
+        try {
+            if (Account.changePassword(email, nPassword, nPasswordA) == 2) {
+                Alert existingEmail = new Alert(Alert.AlertType.INFORMATION);
+                existingEmail.setTitle("Passwords are different");
+                existingEmail.setContentText("Please enter same passwords");
+                existingEmail.showAndWait();
+            }
+            if (Account.changePassword(email, nPassword, nPasswordA) == 0) {
+                Alert existingEmail = new Alert(Alert.AlertType.INFORMATION);
+                existingEmail.setTitle("No account with this email");
+                existingEmail.setContentText("Please enter existing email");
+                existingEmail.showAndWait();
+            }
+            if (Account.changePassword(email, nPassword, nPasswordA) == 1) {
+                Alert existingEmail = new Alert(Alert.AlertType.INFORMATION);
+                existingEmail.setTitle("Password succesfully changed");
+                existingEmail.showAndWait();
+            }
+        } catch (Exception e) {
+            System.out.println(e.getMessage());
         }
     }
 
