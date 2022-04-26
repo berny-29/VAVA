@@ -86,7 +86,7 @@
                                     <Font size="20.0" />
                                  </font>
                               </Label>
-                              <Button fx:id="createPlan" layoutX="9.0" layoutY="390.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="180.0" style="-fx-background-color: #176285#176285; -fx-background-radius: 5;" text="%button.createPlan" textFill="WHITE" />
+                              <Button fx:id="createPlan" layoutX="9.0" layoutY="390.0" mnemonicParsing="false" onAction="#addNewTask" prefHeight="29.0" prefWidth="180.0" style="-fx-background-color: #176285#176285; -fx-background-radius: 5;" text="%button.createPlan" textFill="WHITE" />
                               <Button fx:id="deletePlan" layoutX="204.0" layoutY="522.0" mnemonicParsing="false" onMouseClicked="#deleteUserPlan" prefHeight="29.0" prefWidth="142.0" style="-fx-background-color: #176285#176285; -fx-background-radius: 5;" text="%button.deletePlan" textFill="WHITE" />
                               <ChoiceBox fx:id="selectDeletePlan" layoutX="10.0" layoutY="521.0" prefHeight="30.0" prefWidth="157.0" />
                               <Label layoutX="5.0" layoutY="467.0" prefHeight="39.0" prefWidth="268.0" text="%label.deletePlan">

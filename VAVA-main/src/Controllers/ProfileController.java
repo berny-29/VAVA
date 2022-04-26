@@ -12,6 +12,7 @@ import src.Model.*;
 
 import java.io.IOException;
 import java.sql.SQLException;
+import java.time.LocalTime;
 import java.util.ArrayList;
 
 public class ProfileController extends Controller{
@@ -163,7 +164,6 @@ public class ProfileController extends Controller{
         return fillMinutes;
     }
 
-
     @FXML
     public void initialize() {
         myChildrenArea.setText("");
@@ -175,7 +175,7 @@ public class ProfileController extends Controller{
         ObservableList<String> minutes = FXCollections.observableArrayList(comboMinutes());
         startMinBox.setItems(minutes);
         endMinBox.setItems(minutes);
-        
+
 
         User activeUser = User.getActiveUser();
         myChildrenArea.setText("");
@@ -196,6 +196,25 @@ public class ProfileController extends Controller{
         selectChild1.setItems(options);
         myChildrenArea.setText(sb.toString());
 
+    }
+
+    @FXML
+    public void addNewTask() throws SQLException {
+        createNewTask();
+    }
+
+    @FXML
+    private void createNewTask() throws SQLException {
+
+        User activeUser = User.getActiveUser();
+
+        String desc = taskNameTextField.getText();
+        boolean rep = repeatCheckBox.isSelected();
+        String startH = startHourBox.getValue().toString();
+        String startM = startMinBox.getValue().toString();
+        String endH = endHourBox.getValue().toString();
+        String endM = endHourBox.getValue().toString();
+        Task.createTask(rep,desc, LocalTime.of(Integer.parseInt(startH),Integer.parseInt(startM)),LocalTime.of(Integer.parseInt(endH),Integer.parseInt(endM)),activeUser.getId(),activeUser.getId());
     }
 
     @FXML
