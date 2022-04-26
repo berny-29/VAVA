@@ -131,6 +131,10 @@ public class ProfileController extends Controller{
         myChildrenArea.setText("");
 
 
+        User activeUser = User.getActiveUser();
+        myChildrenArea.setText("");
+        myPlansArea.setText(Task.getTasks(activeUser.getId()).toString());
+
 
         myInfoTextArea.setText(User.getActiveUser().getName());
         StringBuilder sb = new StringBuilder();

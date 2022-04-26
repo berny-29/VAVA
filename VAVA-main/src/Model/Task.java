@@ -1,5 +1,6 @@
 package src.Model;
 
+import java.sql.*;
 import java.time.LocalTime;
 import java.time.OffsetDateTime;
 /**
@@ -60,6 +61,71 @@ public class Task {
         this.end = end;
     }
 
+    public static void createTask(Boolean repetitive, String description, LocalTime start, LocalTime end, int account_id, int child_id) throws SQLException {
+
+        Connection conn = Database.getInstance().getConnection();
+
+        String find = "SELECT * FROM tasks";
+        PreparedStatement pf = conn.prepareStatement(find);
+
+        ResultSet rowf = pf.executeQuery();
+
+
+        String insert = "INSERT INTO tasks (repetitive,description,start_date,end_date,account_id,child_id) VALUES(?,?,?,?,?,?)";
+
+        Timestamp time = java.sql.Timestamp.valueOf(java.time.LocalDateTime.of(2022,4,26,start.getHour(),start.getMinute()));
+
+
+        PreparedStatement pi = conn.prepareStatement(insert);
+        pi.setBoolean(1,repetitive);
+        pi.setString(2,description);
+        pi.setTimestamp(3,java.sql.Timestamp.valueOf(java.time.LocalDateTime.of(2022,4,26,start.getHour(),start.getMinute())));
+        pi.setTimestamp(4,java.sql.Timestamp.valueOf(java.time.LocalDateTime.of(2022,4,26,end.getHour(),end.getMinute())));
+        pi.setInt(5,account_id);
+        pi.setInt(6,child_id);
+
+
+        int rowi = pi.executeUpdate();
+        System.out.println(rowi);
+
+    }
+
+    public static StringBuilder getTasks(int account_id){
+
+        Plan plan = new Plan();
+
+        try {
+            Connection conn = Database.getInstance().getConnection();
+            String statement = "SELECT * FROM tasks where account_id = ?";
+
+            PreparedStatement query = conn.prepareStatement(statement);
+            query.setInt(1, account_id);
+
+
+            ResultSet r = query.executeQuery();
+
+            String result = "";
+
+            StringBuilder str = new StringBuilder();
+
+            str.append("Task\t\tStart\tEnd\n");
+
+            while ( r.next() ) {
+                str.append(r.getString("description"));
+                str.append("\t\t");
+                str.append(r.getTimestamp("start_date").toString());
+                str.append("\t");
+                str.append(r.getTimestamp("end_date"));
+                str.append("\n");
+                System.out.println(r.getString("description"));
+            }
+
+            return str;
+
+        } catch (Exception e) {
+            return null;
+        }
+    }
 
 
 }
