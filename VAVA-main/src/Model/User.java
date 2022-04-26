@@ -9,22 +9,18 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 
 /**
- * @author: Spol XD, akt(Filo,)
- * describtion: ponechavam vasej predstavivosti
+ * @author: 
+ * describtion: 
 */
 public class User {
-    //TODO nvm ci netreba tuto classu dedit z account?
+    
     private String name;
     private int age, id;
     private Plan plan;
     private static User activeUser = new User();
     private ArrayList<Child> childs = new ArrayList<>();
     private ArrayList<String> names = new ArrayList<>();
-    //TODO ---> Kalendar kalendar;
-
-    //TODO konstruktor
-    //Tu neviem aku dame inicializaciu ci singleton,
-    //alebo norm?
+    
 
     public User(){}
 
@@ -107,10 +103,7 @@ public class User {
     public ArrayList<Child> getChilds() {
         return childs;
     }
-//TOTO on login alebo register vytvorit noveho usera typu parent, potom parent.addChild()
-    //public void setStaticUser(User user) {this.user = user;    }
 
-  //  public User getStaticUser() {      return this.user;   }
 
     //Geters
     public int getAge() {
