@@ -4,11 +4,11 @@ import java.time.LocalTime;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
 /**
- * @author: Spol XD, akt(Filo,)
+ * @author: 
  * describtion: ponechavam vasej predstavivosti
 */
 public class Plan {
-    private OffsetDateTime start;       //Ten start a end sme ako mysleli v tom plane?
+    private OffsetDateTime start;       
     private OffsetDateTime end;
     private ArrayList<Task> tasks;
     private String name;
@@ -17,8 +17,7 @@ public class Plan {
         this.tasks = new ArrayList<Task>();
     }
 
-    //TODO este chyba geter a setter pre tasks, ale tam treba uvazovat ako budeme pristupovat k jednotlivim elementom?
-    // funkica nato je array.get(), ale ako ich budeme identifikovat?
+    
 
     public Task addTask(String desc, LocalTime start, LocalTime end){
         Task task = new Task();
