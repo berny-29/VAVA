@@ -157,6 +157,7 @@ public class ProfileController extends Controller{
             int child_id = User.getActiveUser().findChildId(selectChild1.getValue().toString());
             Task.createTask(rep,desc, LocalTime.of(Integer.parseInt(startH),Integer.parseInt(startM)),LocalTime.of(Integer.parseInt(endH),Integer.parseInt(endM)),child_id,child_id);
         }
+        myPlansArea.setText(Task.getTasks(activeUser.getId()).toString());
 
     }
 
