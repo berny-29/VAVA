@@ -10,8 +10,8 @@ import java.time.LocalDateTime;
 
 
 /**
- * @author: Spol XD, akt(Filo,Gajdos,Mark)
- * describtion: ponechavam vasej predstavivosti
+ * @author: Filo,Gajdos,Mark
+ * describtion: accout class
 */
 public class Account {
     private int id ;
