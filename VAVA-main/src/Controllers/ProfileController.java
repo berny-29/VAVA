@@ -165,7 +165,7 @@ public class ProfileController extends Controller{
     }
 
     @FXML
-    public void initialize() {
+    private void initialize() {
         myChildrenArea.setText("");
 
         ObservableList<String> hours = FXCollections.observableArrayList(comboHours());
@@ -199,7 +199,7 @@ public class ProfileController extends Controller{
     }
 
     @FXML
-    public void addNewTask() throws SQLException {
+    private void addNewTask() throws SQLException {
         createNewTask();
     }
 
@@ -249,11 +249,6 @@ public class ProfileController extends Controller{
             System.out.println(e.getMessage());
         }
     }
-
-    public void createTask(){
-
-    }
-
 
     @FXML
     private void deleteUserPlan(){

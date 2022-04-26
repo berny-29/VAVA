@@ -16,7 +16,6 @@ import java.time.LocalDateTime;
 public class Account {
     private int id ;
     private String name, password, email;
-    public static Account staticACC;
 
     public static void loginLogger(String email, String password,String status) throws Exception {
 
@@ -35,6 +34,7 @@ public class Account {
 
 
     }
+
 
     public static boolean accountRegistration(String firstname,String lastname,String sex,String date, String password, String email) throws SQLException {
 
@@ -170,10 +170,4 @@ public class Account {
         return ip;
     }
 
-    public void setStaticAcc(String mail, String password, String name){
-
-        staticACC.email = mail;
-        staticACC.name = name;
-        staticACC.password = password;
-    }
 }

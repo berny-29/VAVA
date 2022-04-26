@@ -3,7 +3,7 @@ package src.Model;
 import java.util.ArrayList;
 
 public class Parent extends User{
-    ArrayList<Child> children = new ArrayList<>();
+    private ArrayList<Child> children = new ArrayList<>();
 
     public Parent(String name) {
         super(name);
