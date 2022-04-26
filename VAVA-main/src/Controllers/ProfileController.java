@@ -140,6 +140,10 @@ public class ProfileController extends Controller{
     @FXML
     private void addNewTask() throws SQLException {
         createNewTask();
+
+        User activeUser = User.getActiveUser();
+        myChildrenArea.setText("");
+        myPlansArea.setText(Task.getTasks(activeUser.getId()).toString());
     }
 
     @FXML
@@ -152,7 +156,7 @@ public class ProfileController extends Controller{
         String startH = startHourBox.getValue().toString();
         String startM = startMinBox.getValue().toString();
         String endH = endHourBox.getValue().toString();
-        String endM = endHourBox.getValue().toString();
+        String endM = endMinBox.getValue().toString();
         if(selectChild1.getSelectionModel().isEmpty()){
             Task.createTask(rep,desc, LocalTime.of(Integer.parseInt(startH),Integer.parseInt(startM)),LocalTime.of(Integer.parseInt(endH),Integer.parseInt(endM)),activeUser.getId(),activeUser.getId());
         }else {
@@ -189,7 +193,7 @@ public class ProfileController extends Controller{
             System.out.println(e.getMessage());
         }
     }
-    
+
     @FXML
     private void addChild() throws SQLException {
         String name = childNameTextField.getText();

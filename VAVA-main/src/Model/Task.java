@@ -65,12 +65,6 @@ public class Task {
 
         Connection conn = Database.getInstance().getConnection();
 
-        String find = "SELECT * FROM tasks";
-        PreparedStatement pf = conn.prepareStatement(find);
-
-        ResultSet rowf = pf.executeQuery();
-
-
         String insert = "INSERT INTO tasks (repetitive,description,start_date,end_date,account_id,child_id) VALUES(?,?,?,?,?,?)";
 
         Timestamp time = java.sql.Timestamp.valueOf(java.time.LocalDateTime.of(2022,4,26,start.getHour(),start.getMinute()));
@@ -91,8 +85,6 @@ public class Task {
     }
 
     public static StringBuilder getTasks(int account_id){
-
-        Plan plan = new Plan();
 
         try {
             Connection conn = Database.getInstance().getConnection();
