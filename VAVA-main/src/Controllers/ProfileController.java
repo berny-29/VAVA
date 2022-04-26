@@ -1,6 +1,7 @@
 package src.Controllers;
 
 import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.fxml.FXML;
 import javafx.scene.chart.BarChart;
 import javafx.scene.chart.PieChart;
@@ -84,7 +85,7 @@ public class ProfileController extends Controller{
     private ChoiceBox<?> selectChild;
 
     @FXML
-    private ChoiceBox<?> selectChild1;
+    private ChoiceBox<String> selectChild1;
 
     @FXML
     private ChoiceBox<?> selectChildPlan;
@@ -147,16 +148,21 @@ public class ProfileController extends Controller{
     @FXML
     public void initialize() {
         myChildrenArea.setText("");
-        selectChild1 = new ChoiceBox<String>();
+
+
 
         myInfoTextArea.setText(User.getActiveUser().getName());
         StringBuilder sb = new StringBuilder();
 
         for(Child child: User.getActiveUser().getChilds()){
-            System.out.println("jj");
+
             sb.append(child.getName());
             sb.append("\n");
+
         }
+        ObservableList<String> options =
+                FXCollections.observableArrayList(User.getActiveUser().getChildsName());
+        selectChild1.setItems(options);
         myChildrenArea.setText(sb.toString());
 
     }
@@ -209,43 +215,16 @@ public class ProfileController extends Controller{
     }
 
     @FXML
-    private void addChild(){
-        try {
-            String name = childNameTextField.getText();
-            Connection conn = Database.getInstance().getConnection();
-            String statement = "SELECT * FROM accounts where firstname=? AND lastname=?";
-
-            String[] names = name.split(" ");
-
-            PreparedStatement query = conn.prepareStatement(statement);
-            query.setString(1, names[0]);
-            query.setString(2, names[1]);
-
-            ResultSet row = query.executeQuery();
-
-            String[] data = {"", ""};
-            while (row.next()) {
-                data[0] = row.getString("firstname") + " " + row.getString("lastname");
-                //data[1] = row.getString("age");
-            }
-
-            if ( User.getActiveUser() != null && User.getActiveUser() instanceof Parent) {
-                User.getActiveUser().addChild(new Child(data[0]));
-            }
-
-            String childrenNames[] = new String[]{};
-            //selectChild1 = new ChoiceBox<>(FXCollections.observableArrayList(childrenNames));
-
-            if ( !selectChild1.getItems().contains(name) ) {
-       //         selectChild1.getItems().add(name);
-
-                StringBuilder sb = new StringBuilder(myChildrenArea.getText());
-                sb.append(name + '\n');
-                myChildrenArea.setText(sb.toString());
-            }
-
-        } catch (Exception e) {
-            System.out.println(e.getMessage());
+    private void addChild() throws SQLException {
+        String name = childNameTextField.getText();
+        if(User.getActiveUser().addChild(name) == 1){
+            Alert existingEmail = new Alert(Alert.AlertType.INFORMATION);
+            existingEmail.setTitle("Child succesfully added");
+            existingEmail.showAndWait();
+        }else{
+            Alert existingEmail = new Alert(Alert.AlertType.INFORMATION);
+            existingEmail.setTitle("Wrong email");
+            existingEmail.showAndWait();
         }
 
 

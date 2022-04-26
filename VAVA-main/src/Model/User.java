@@ -19,6 +19,7 @@ public class User {
     private Plan plan;
     private static User activeUser = new User();
     private ArrayList<Child> childs = new ArrayList<>();
+    private ArrayList<String> names = new ArrayList<>();
     //TODO ---> Kalendar kalendar;
 
     //TODO konstruktor
@@ -62,27 +63,30 @@ public class User {
         pf.setInt(1, id);
         StringBuilder sb = new StringBuilder();
         ResultSet rowf = pf.executeQuery();
-        while (rowf.next()) {
-            sb.append(rowf.getInt(1));
-            sb.append(",");
-        }
+        if (rowf.next()) {
+             do {
+                sb.append(rowf.getInt(1));
+                sb.append(",");
+            }while (rowf.next());
 
-        String[] array = sb.toString().split(",");
+            String[] array = sb.toString().split(",");
 
-        for (String s : array) {
-            String sql1 = "select * from accounts where id = ?";
-            pf = conn.prepareStatement(sql1);
-            int i = Integer.parseInt(s);
-            pf.setInt(1, i);
-            ResultSet rowf1 = pf.executeQuery();
-            while (rowf1.next()) {
+            for (String s : array) {
+                String sql1 = "select * from accounts where id = ?";
+                pf = conn.prepareStatement(sql1);
+                int i = Integer.parseInt(s);
+                pf.setInt(1, i);
+                ResultSet rowf1 = pf.executeQuery();
+                while (rowf1.next()) {
 
-                Child child = new Child(rowf1.getString(2));
-                childs.add(child);
+                    Child child = new Child(rowf1.getString(2));
+                    childs.add(child);
+                }
+
             }
 
-        }
 
+        }
         return childs;
     }
 
@@ -118,7 +122,29 @@ public class User {
         this.plan = plan;
     }
 
-    public void addChild(Child child) {
+    public int addChild(String email) throws SQLException {
+        int id = User.getActiveUser().getId();
+
+
+        Connection conn = Database.getInstance().getConnection();
+
+        String sql = "Select * from Accounts where email=?";
+        PreparedStatement pf = conn.prepareStatement(sql);
+        pf.setInt(1, id);
+        pf.setString(1,email);
+        ResultSet rowf = pf.executeQuery();
+        if(rowf.next()){
+            int child_id = rowf.getInt(1);
+            String sql2 = "insert into children values(?,?)";
+            PreparedStatement pf2 = conn.prepareStatement(sql2);
+            pf2.setInt(1,child_id);
+            pf2.setInt(2,id);
+            int rowp = pf2.executeUpdate();
+            if(rowp == 1){
+                return 1;
+            }
+        }
+        return 0;
     }
 
     public String getUserName(String email){
@@ -174,6 +200,11 @@ public class User {
 
 
 
-    public ArrayList<Child> getChildren() {return null;}
+    public ArrayList<String> getChildsName(){
+        for(Child c: childs){
+            names.add(c.getName());
+        }
+        return names;
+    }
 
 }
