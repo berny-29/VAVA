@@ -201,10 +201,11 @@ public class User {
 
 
     public ArrayList<String> getChildsName(){
+        ArrayList<String> names2 = new ArrayList<>();
         for(Child c: childs){
-            names.add(c.getName());
+            names2.add(c.getName());
         }
-        return names;
+        return names2;
     }
 
 }
