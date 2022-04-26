@@ -85,7 +85,7 @@ public class ProfileController extends Controller{
     private ChoiceBox<?> selectChild;
 
     @FXML
-    private ChoiceBox<?> selectChild1;
+    private ChoiceBox<String> selectChild1;
 
     @FXML
     private ChoiceBox<?> selectChildPlan;
