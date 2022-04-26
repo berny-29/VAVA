@@ -122,7 +122,29 @@ public class User {
         this.plan = plan;
     }
 
-    public void addChild(Child child) {
+    public int addChild(String email) throws SQLException {
+        int id = User.getActiveUser().getId();
+
+
+        Connection conn = Database.getInstance().getConnection();
+
+        String sql = "Select * from Accounts where email=?";
+        PreparedStatement pf = conn.prepareStatement(sql);
+        pf.setInt(1, id);
+        pf.setString(1,email);
+        ResultSet rowf = pf.executeQuery();
+        if(rowf.next()){
+            int child_id = rowf.getInt(1);
+            String sql2 = "insert into children values(?,?)";
+            PreparedStatement pf2 = conn.prepareStatement(sql2);
+            pf2.setInt(1,child_id);
+            pf2.setInt(2,id);
+            int rowp = pf2.executeUpdate();
+            if(rowp == 1){
+                return 1;
+            }
+        }
+        return 0;
     }
 
     public String getUserName(String email){
