@@ -9,10 +9,6 @@ import java.io.*;
 import java.time.LocalDateTime;
 
 
-/**
- * @author: Filo,Gajdos,Mark
- * describtion: accout class
-*/
 public class Account {
     private int id ;
     private String name, password, email;

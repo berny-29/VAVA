@@ -8,7 +8,6 @@ import javafx.scene.control.*;
 import javafx.scene.text.Text;
 import javafx.stage.Stage;
 import src.Model.Account;
-import src.Model.ObservableResourceFactory;
 
 import java.io.IOException;
 import java.sql.SQLException;

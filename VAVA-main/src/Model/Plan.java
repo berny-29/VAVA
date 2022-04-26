@@ -3,10 +3,7 @@ package src.Model;
 import java.time.LocalTime;
 import java.time.OffsetDateTime;
 import java.util.ArrayList;
-/**
- * @author: 
- * describtion: ponechavam vasej predstavivosti
-*/
+
 public class Plan {
     private OffsetDateTime start;       
     private OffsetDateTime end;

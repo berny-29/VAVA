@@ -8,10 +8,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 
-/**
- * @author: 
- * describtion: 
-*/
 public class User {
     
     private String name;

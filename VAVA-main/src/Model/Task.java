@@ -3,10 +3,7 @@ package src.Model;
 import java.sql.*;
 import java.time.LocalTime;
 import java.time.OffsetDateTime;
-/**
- * @author: 
- * describtion: 
- */
+
 public class Task {
     private boolean stat = false, repetitiveTask = false;
     private String desc;
